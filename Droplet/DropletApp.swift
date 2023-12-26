@@ -11,7 +11,7 @@ import SwiftUI
 struct DropletApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            DropletTabView()
         }
     }
 }
