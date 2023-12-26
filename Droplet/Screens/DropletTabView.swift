@@ -27,10 +27,16 @@ struct DropletTabView: View {
                 }
         }
         .tint(Color("brandPrimary"))
+        .overlay(
+            Rectangle()
+                .frame(height: 1)
+                .foregroundStyle(Color.secondary)
+                .offset(y: 325)
+            )
     }
 }
 
 #Preview {
     DropletTabView()
 }
- 
+

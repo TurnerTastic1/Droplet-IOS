@@ -12,8 +12,10 @@ struct ProfileView: View {
     @State var isShowingPersonalInfo = false
     
     private var username = "John Doe"
-    private var fitnessType = "Loves running and weightlifting"
+    private var bio = "Crossfitter, lifter and runner!"
     private var personalInfo = ["Age: 24", "Height: 6'1", "Weight: 190lb"]
+    
+    @State private var scale: CGFloat = 1.0
     
     var body: some View {
         ZStack {
@@ -31,27 +33,72 @@ struct ProfileView: View {
                                 .clipShape(Circle())
                                 .overlay(Circle().stroke(Color.white, lineWidth: 4))
                                 .shadow(radius: 10)
-                                .padding(.trailing, 15)
+                                .padding([.trailing, .leading], 15)
+                            
+                            Spacer()
                             
                             Text(username)
                                 .font(.title)
                                 .fontWeight(.bold)
                                 .foregroundStyle(Color.primary)
+                            
+                            Spacer()
                         }
                     }
                     .padding(.bottom, 5)
                     
                     HStack {
+                        
+                        Spacer()
+                        
                         Button {
                             isShowingPersonalInfo = true
                         } label: {
-                            Text("Stats")
+                            VStack {
+                                Image(systemName: "figure.run")
+                                    .resizable()
+                                    .frame(width: 35, height: 35)
+                                
+                                Text("Stats")
+                            }
+                            .foregroundStyle(Color(.brandPrimary))
                         }
+                        .padding()
+                        
+                        Spacer()
+                        
+                        Button {
+                            
+                        } label: {
+                            VStack {
+                                Image(systemName: "person.fill.badge.plus")
+                                    .resizable()
+                                    .frame(width: 35, height: 35)
+                                    .scaleEffect(scale)
+                                                .onAppear {
+                                                    withAnimation(.easeInOut(duration: 0.5)) {
+                                                        scale = 1.2
+                                                    }
+                                                    withAnimation(.easeInOut(duration: 0.5).delay(0.5)) {
+                                                        scale = 1.0
+                                                    }
+                                                }
+                                
+                                Text("Follow")
+                            }
+                            .foregroundStyle(Color(.brandPrimary))
+                        }
+                        .padding()
+                        
+                        Spacer()
                     }
                     
-                    Text(fitnessType)
+                    Text(bio)
                         .font(.body)
                         .padding(.top, 10)
+                    
+                    WaterDropChartView()
+                    
                     
                     Spacer()
                     
@@ -72,7 +119,7 @@ struct ProfileView: View {
             
             //MARK: Personal info card
             if isShowingPersonalInfo {
-                PersonalDetails(personalInfo: personalInfo, isShowingPersonalInfo: $isShowingPersonalInfo)
+                PersonalDetailsView(personalInfo: personalInfo, isShowingPersonalInfo: $isShowingPersonalInfo)
             }
             
         }

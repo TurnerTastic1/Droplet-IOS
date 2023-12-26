@@ -15,9 +15,11 @@
 		D69E051C2B3B4162001FE246 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D69E051B2B3B4162001FE246 /* ProfileView.swift */; };
 		D69E051E2B3B45E4001FE246 /* CompleteWorkoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D69E051D2B3B45E4001FE246 /* CompleteWorkoutView.swift */; };
 		D69E05202B3B4684001FE246 /* DailyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D69E051F2B3B4684001FE246 /* DailyView.swift */; };
-		D69E05222B3B51FB001FE246 /* PersonalDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = D69E05212B3B51FB001FE246 /* PersonalDetails.swift */; };
+		D69E05222B3B51FB001FE246 /* PersonalDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D69E05212B3B51FB001FE246 /* PersonalDetailsView.swift */; };
 		D69E05242B3B5642001FE246 /* XDismissButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D69E05232B3B5642001FE246 /* XDismissButton.swift */; };
 		D69E05262B3B5B28001FE246 /* brandButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D69E05252B3B5B28001FE246 /* brandButton.swift */; };
+		D69E05282B3B7771001FE246 /* WaterDropCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D69E05272B3B7771001FE246 /* WaterDropCellView.swift */; };
+		D69E05342B3B8119001FE246 /* WaterDropChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D69E05332B3B8119001FE246 /* WaterDropChartView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,9 +32,11 @@
 		D69E051B2B3B4162001FE246 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		D69E051D2B3B45E4001FE246 /* CompleteWorkoutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompleteWorkoutView.swift; sourceTree = "<group>"; };
 		D69E051F2B3B4684001FE246 /* DailyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyView.swift; sourceTree = "<group>"; };
-		D69E05212B3B51FB001FE246 /* PersonalDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalDetails.swift; sourceTree = "<group>"; };
+		D69E05212B3B51FB001FE246 /* PersonalDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalDetailsView.swift; sourceTree = "<group>"; };
 		D69E05232B3B5642001FE246 /* XDismissButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XDismissButton.swift; sourceTree = "<group>"; };
 		D69E05252B3B5B28001FE246 /* brandButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = brandButton.swift; sourceTree = "<group>"; };
+		D69E05272B3B7771001FE246 /* WaterDropCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaterDropCellView.swift; sourceTree = "<group>"; };
+		D69E05332B3B8119001FE246 /* WaterDropChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaterDropChartView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,16 +70,13 @@
 		D69E05062B3B35AC001FE246 /* Droplet */ = {
 			isa = PBXGroup;
 			children = (
+				D69E052C2B3B782D001FE246 /* Model */,
+				D69E052B2B3B7824001FE246 /* Views */,
+				D69E052A2B3B781B001FE246 /* Utilities */,
+				D69E05292B3B780D001FE246 /* Screens */,
 				D69E05072B3B35AC001FE246 /* DropletApp.swift */,
-				D69E05192B3B4131001FE246 /* DropletTabView.swift */,
 				D69E050B2B3B35AE001FE246 /* Assets.xcassets */,
 				D69E050D2B3B35AE001FE246 /* Preview Content */,
-				D69E051B2B3B4162001FE246 /* ProfileView.swift */,
-				D69E051D2B3B45E4001FE246 /* CompleteWorkoutView.swift */,
-				D69E051F2B3B4684001FE246 /* DailyView.swift */,
-				D69E05212B3B51FB001FE246 /* PersonalDetails.swift */,
-				D69E05232B3B5642001FE246 /* XDismissButton.swift */,
-				D69E05252B3B5B28001FE246 /* brandButton.swift */,
 			);
 			path = Droplet;
 			sourceTree = "<group>";
@@ -86,6 +87,91 @@
 				D69E050E2B3B35AE001FE246 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		D69E05292B3B780D001FE246 /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				D69E052F2B3B786B001FE246 /* DailyView */,
+				D69E052E2B3B785F001FE246 /* CompleteWorkoutView */,
+				D69E052D2B3B784B001FE246 /* ProfileView */,
+				D69E05192B3B4131001FE246 /* DropletTabView.swift */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
+		D69E052A2B3B781B001FE246 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		D69E052B2B3B7824001FE246 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				D69E05322B3B7925001FE246 /* GlobalViews */,
+				D69E05312B3B7907001FE246 /* ProfileViews */,
+				D69E05302B3B78B0001FE246 /* Buttons */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		D69E052C2B3B782D001FE246 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		D69E052D2B3B784B001FE246 /* ProfileView */ = {
+			isa = PBXGroup;
+			children = (
+				D69E051B2B3B4162001FE246 /* ProfileView.swift */,
+			);
+			path = ProfileView;
+			sourceTree = "<group>";
+		};
+		D69E052E2B3B785F001FE246 /* CompleteWorkoutView */ = {
+			isa = PBXGroup;
+			children = (
+				D69E051D2B3B45E4001FE246 /* CompleteWorkoutView.swift */,
+			);
+			path = CompleteWorkoutView;
+			sourceTree = "<group>";
+		};
+		D69E052F2B3B786B001FE246 /* DailyView */ = {
+			isa = PBXGroup;
+			children = (
+				D69E051F2B3B4684001FE246 /* DailyView.swift */,
+			);
+			path = DailyView;
+			sourceTree = "<group>";
+		};
+		D69E05302B3B78B0001FE246 /* Buttons */ = {
+			isa = PBXGroup;
+			children = (
+				D69E05252B3B5B28001FE246 /* brandButton.swift */,
+				D69E05232B3B5642001FE246 /* XDismissButton.swift */,
+			);
+			path = Buttons;
+			sourceTree = "<group>";
+		};
+		D69E05312B3B7907001FE246 /* ProfileViews */ = {
+			isa = PBXGroup;
+			children = (
+				D69E05212B3B51FB001FE246 /* PersonalDetailsView.swift */,
+			);
+			path = ProfileViews;
+			sourceTree = "<group>";
+		};
+		D69E05322B3B7925001FE246 /* GlobalViews */ = {
+			isa = PBXGroup;
+			children = (
+				D69E05272B3B7771001FE246 /* WaterDropCellView.swift */,
+				D69E05332B3B8119001FE246 /* WaterDropChartView.swift */,
+			);
+			path = GlobalViews;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -159,9 +245,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D69E05342B3B8119001FE246 /* WaterDropChartView.swift in Sources */,
+				D69E05282B3B7771001FE246 /* WaterDropCellView.swift in Sources */,
 				D69E051A2B3B4131001FE246 /* DropletTabView.swift in Sources */,
 				D69E051C2B3B4162001FE246 /* ProfileView.swift in Sources */,
-				D69E05222B3B51FB001FE246 /* PersonalDetails.swift in Sources */,
+				D69E05222B3B51FB001FE246 /* PersonalDetailsView.swift in Sources */,
 				D69E05082B3B35AC001FE246 /* DropletApp.swift in Sources */,
 				D69E05202B3B4684001FE246 /* DailyView.swift in Sources */,
 				D69E051E2B3B45E4001FE246 /* CompleteWorkoutView.swift in Sources */,

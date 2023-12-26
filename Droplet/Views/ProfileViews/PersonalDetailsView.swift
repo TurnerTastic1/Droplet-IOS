@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct PersonalDetails: View {
+struct PersonalDetailsView: View {
     
     var personalInfo: [String]
     @Binding var isShowingPersonalInfo: Bool
@@ -47,5 +47,5 @@ struct PersonalDetails: View {
 }
 
 #Preview {
-    PersonalDetails(personalInfo: ["Age: 24", "Height: 6'1", "Weight: 190lb"], isShowingPersonalInfo: .constant(true))
+    PersonalDetailsView(personalInfo: ["Age: 24", "Height: 6'1", "Weight: 190lb"], isShowingPersonalInfo: .constant(true))
 }
