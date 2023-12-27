@@ -20,6 +20,10 @@
 		D69E05262B3B5B28001FE246 /* brandButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D69E05252B3B5B28001FE246 /* brandButton.swift */; };
 		D69E05282B3B7771001FE246 /* WaterDropCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D69E05272B3B7771001FE246 /* WaterDropCellView.swift */; };
 		D69E05342B3B8119001FE246 /* WaterDropChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D69E05332B3B8119001FE246 /* WaterDropChartView.swift */; };
+		D69E05362B3BC82B001FE246 /* CompletedWorkoutCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D69E05352B3BC82B001FE246 /* CompletedWorkoutCellView.swift */; };
+		D69E05382B3CC204001FE246 /* WorkoutListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D69E05372B3CC204001FE246 /* WorkoutListView.swift */; };
+		D69E053A2B3CC3E2001FE246 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D69E05392B3CC3E2001FE246 /* ProfileViewModel.swift */; };
+		D69E053C2B3CC445001FE246 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = D69E053B2B3CC445001FE246 /* User.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +41,10 @@
 		D69E05252B3B5B28001FE246 /* brandButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = brandButton.swift; sourceTree = "<group>"; };
 		D69E05272B3B7771001FE246 /* WaterDropCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaterDropCellView.swift; sourceTree = "<group>"; };
 		D69E05332B3B8119001FE246 /* WaterDropChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaterDropChartView.swift; sourceTree = "<group>"; };
+		D69E05352B3BC82B001FE246 /* CompletedWorkoutCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompletedWorkoutCellView.swift; sourceTree = "<group>"; };
+		D69E05372B3CC204001FE246 /* WorkoutListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutListView.swift; sourceTree = "<group>"; };
+		D69E05392B3CC3E2001FE246 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
+		D69E053B2B3CC445001FE246 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,6 +128,7 @@
 		D69E052C2B3B782D001FE246 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				D69E053B2B3CC445001FE246 /* User.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -128,6 +137,7 @@
 			isa = PBXGroup;
 			children = (
 				D69E051B2B3B4162001FE246 /* ProfileView.swift */,
+				D69E05392B3CC3E2001FE246 /* ProfileViewModel.swift */,
 			);
 			path = ProfileView;
 			sourceTree = "<group>";
@@ -170,6 +180,8 @@
 			children = (
 				D69E05272B3B7771001FE246 /* WaterDropCellView.swift */,
 				D69E05332B3B8119001FE246 /* WaterDropChartView.swift */,
+				D69E05352B3BC82B001FE246 /* CompletedWorkoutCellView.swift */,
+				D69E05372B3CC204001FE246 /* WorkoutListView.swift */,
 			);
 			path = GlobalViews;
 			sourceTree = "<group>";
@@ -247,13 +259,17 @@
 			files = (
 				D69E05342B3B8119001FE246 /* WaterDropChartView.swift in Sources */,
 				D69E05282B3B7771001FE246 /* WaterDropCellView.swift in Sources */,
+				D69E05382B3CC204001FE246 /* WorkoutListView.swift in Sources */,
 				D69E051A2B3B4131001FE246 /* DropletTabView.swift in Sources */,
 				D69E051C2B3B4162001FE246 /* ProfileView.swift in Sources */,
 				D69E05222B3B51FB001FE246 /* PersonalDetailsView.swift in Sources */,
+				D69E053C2B3CC445001FE246 /* User.swift in Sources */,
 				D69E05082B3B35AC001FE246 /* DropletApp.swift in Sources */,
 				D69E05202B3B4684001FE246 /* DailyView.swift in Sources */,
 				D69E051E2B3B45E4001FE246 /* CompleteWorkoutView.swift in Sources */,
 				D69E05242B3B5642001FE246 /* XDismissButton.swift in Sources */,
+				D69E053A2B3CC3E2001FE246 /* ProfileViewModel.swift in Sources */,
+				D69E05362B3BC82B001FE246 /* CompletedWorkoutCellView.swift in Sources */,
 				D69E05262B3B5B28001FE246 /* brandButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

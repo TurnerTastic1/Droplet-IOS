@@ -99,7 +99,6 @@ struct ProfileView: View {
                     
                     WaterDropChartView()
                     
-                    
                     Spacer()
                     
                 }

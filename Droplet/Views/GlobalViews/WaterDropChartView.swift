@@ -34,7 +34,10 @@ struct WaterDropChartView: View {
         .frame(width: 250, height: 250)
         .foregroundStyle(Color.secondary)
         .clipShape(RoundedRectangle(cornerRadius: 20))
+        //.background(RoundedRectangle(cornerRadius: 20).fill(Color.clear))
+        .shadow(color: .gray, radius: 10, x: 0, y: 0)
     }
+    
 }
 
 #Preview {
