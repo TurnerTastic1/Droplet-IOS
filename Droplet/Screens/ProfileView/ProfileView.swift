@@ -11,10 +11,6 @@ struct ProfileView: View {
     
     @StateObject var viewModel = ProfileViewModel()
     
-    private var username = "John Doe"
-    private var bio = "Crossfitter, lifter and runner!"
-    private var personalInfo = ["Age: 24", "Height: 6'1", "Weight: 190lb"]
-    
     var body: some View {
         ZStack {
             //MARK: Main navigation stack view
@@ -24,7 +20,7 @@ struct ProfileView: View {
                     
                     ProfileInteractionView(isShowingPersonalInfo: $viewModel.isShowingPersonalInfo)
                     
-                    Text(bio)
+                    Text(viewModel.user.bio)
                         .font(.body)
                         .padding(.top, 10)
                     
@@ -49,7 +45,7 @@ struct ProfileView: View {
             
             //MARK: Personal info card
             if viewModel.isShowingPersonalInfo {
-                PersonalDetailsView(personalInfo: personalInfo, isShowingPersonalInfo: $viewModel.isShowingPersonalInfo)
+                PersonalDetailsView(personalInfo: viewModel.user.personalInfo, isShowingPersonalInfo: $viewModel.isShowingPersonalInfo)
             }
             
         }

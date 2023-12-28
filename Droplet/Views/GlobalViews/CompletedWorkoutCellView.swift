@@ -9,40 +9,38 @@ import SwiftUI
 
 struct CompletedWorkoutCellView: View {
     
-    var name: String
-    var date: Date
-    var imgName: String
+    var workout: CompletedWorkout
     
     var dateFormatter: DateFormatter {
-            let formatter = DateFormatter()
-            formatter.dateStyle = .long
-            return formatter
-        }
+        let formatter = DateFormatter()
+        formatter.dateStyle = .long
+        return formatter
+    }
     
     var body: some View {
         HStack {
-            Image(imgName)
+            Image(workout.imgName)
                 .resizable()
                 .aspectRatio(contentMode: .fit)
-                .frame(width: 120, height: 90)
+                .frame(width: 90, height: 90)
                 .cornerRadius(20)
             
-            HStack {
-                VStack(alignment: .leading, spacing: 5) {
-                    Text(name)
-                        .font(.title2)
-                        .fontWeight(.medium)
-                    
-                    Text(dateFormatter.string(from: date))
-                        .foregroundColor(.secondary)
-                        .fontWeight(.semibold)
-                }
-                .padding()
+            VStack(alignment: .leading, spacing: 5) {
+                Text(workout.name)
+                    .font(.title2)
+                    .fontWeight(.medium)
+                
+                Text(dateFormatter.string(from: workout.date))
+                    .foregroundColor(.secondary)
+                    .fontWeight(.semibold)
             }
+            .padding()
+            
+            Image(systemName: workout.workoutIconName)
         }
     }
 }
 
 #Preview {
-    CompletedWorkoutCellView(name: "Murph", date: Date(), imgName: "murphSamplePhoto")
+    CompletedWorkoutCellView(workout: MockData.sampleCompletedWorkout1)
 }

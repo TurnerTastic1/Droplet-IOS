@@ -27,6 +27,7 @@
 		D69E053F2B3E1D05001FE246 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D69E053E2B3E1D05001FE246 /* HeaderView.swift */; };
 		D69E05422B3E1ECE001FE246 /* MockData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D69E05412B3E1ECE001FE246 /* MockData.swift */; };
 		D69E05442B3E2010001FE246 /* ProfileInteractionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D69E05432B3E2010001FE246 /* ProfileInteractionView.swift */; };
+		D69E05462B3E3649001FE246 /* CompletedWorkout.swift in Sources */ = {isa = PBXBuildFile; fileRef = D69E05452B3E3649001FE246 /* CompletedWorkout.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -51,6 +52,7 @@
 		D69E053E2B3E1D05001FE246 /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
 		D69E05412B3E1ECE001FE246 /* MockData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockData.swift; sourceTree = "<group>"; };
 		D69E05432B3E2010001FE246 /* ProfileInteractionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileInteractionView.swift; sourceTree = "<group>"; };
+		D69E05452B3E3649001FE246 /* CompletedWorkout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompletedWorkout.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -136,6 +138,7 @@
 			isa = PBXGroup;
 			children = (
 				D69E053B2B3CC445001FE246 /* User.swift */,
+				D69E05452B3E3649001FE246 /* CompletedWorkout.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -293,6 +296,7 @@
 				D69E05082B3B35AC001FE246 /* DropletApp.swift in Sources */,
 				D69E05202B3B4684001FE246 /* DailyView.swift in Sources */,
 				D69E051E2B3B45E4001FE246 /* CompleteWorkoutView.swift in Sources */,
+				D69E05462B3E3649001FE246 /* CompletedWorkout.swift in Sources */,
 				D69E053F2B3E1D05001FE246 /* HeaderView.swift in Sources */,
 				D69E05242B3B5642001FE246 /* XDismissButton.swift in Sources */,
 				D69E053A2B3CC3E2001FE246 /* ProfileViewModel.swift in Sources */,

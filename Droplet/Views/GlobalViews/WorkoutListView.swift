@@ -8,11 +8,19 @@
 import SwiftUI
 
 struct WorkoutListView: View {
+    
+    var completedWorkouts: [CompletedWorkout]
+    
     var body: some View {
-        Text("test")
+        NavigationStack {
+            List(completedWorkouts) { workout in
+                CompletedWorkoutCellView(workout: workout)
+            }
+            .navigationTitle("Workouts")
+        }
     }
 }
 
 #Preview {
-    WorkoutListView()
+    WorkoutListView(completedWorkouts: MockData.sampleCompletedWorkouts)
 }

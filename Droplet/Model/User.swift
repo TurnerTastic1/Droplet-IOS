@@ -14,5 +14,7 @@ struct User: Codable {
     var email = ""
     var birthdate = Date()
     
-    
+    var bio = ""
+    var personalInfo = [""]
+    var completedWorkouts: [CompletedWorkout] = []
 }
