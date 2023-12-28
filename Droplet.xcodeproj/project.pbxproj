@@ -24,6 +24,9 @@
 		D69E05382B3CC204001FE246 /* WorkoutListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D69E05372B3CC204001FE246 /* WorkoutListView.swift */; };
 		D69E053A2B3CC3E2001FE246 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D69E05392B3CC3E2001FE246 /* ProfileViewModel.swift */; };
 		D69E053C2B3CC445001FE246 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = D69E053B2B3CC445001FE246 /* User.swift */; };
+		D69E053F2B3E1D05001FE246 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D69E053E2B3E1D05001FE246 /* HeaderView.swift */; };
+		D69E05422B3E1ECE001FE246 /* MockData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D69E05412B3E1ECE001FE246 /* MockData.swift */; };
+		D69E05442B3E2010001FE246 /* ProfileInteractionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D69E05432B3E2010001FE246 /* ProfileInteractionView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,6 +48,9 @@
 		D69E05372B3CC204001FE246 /* WorkoutListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutListView.swift; sourceTree = "<group>"; };
 		D69E05392B3CC3E2001FE246 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 		D69E053B2B3CC445001FE246 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		D69E053E2B3E1D05001FE246 /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
+		D69E05412B3E1ECE001FE246 /* MockData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockData.swift; sourceTree = "<group>"; };
+		D69E05432B3E2010001FE246 /* ProfileInteractionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileInteractionView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +117,7 @@
 		D69E052A2B3B781B001FE246 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				D69E05402B3E1EC4001FE246 /* TestData */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -136,6 +143,7 @@
 		D69E052D2B3B784B001FE246 /* ProfileView */ = {
 			isa = PBXGroup;
 			children = (
+				D69E053D2B3E1CF2001FE246 /* Views */,
 				D69E051B2B3B4162001FE246 /* ProfileView.swift */,
 				D69E05392B3CC3E2001FE246 /* ProfileViewModel.swift */,
 			);
@@ -184,6 +192,23 @@
 				D69E05372B3CC204001FE246 /* WorkoutListView.swift */,
 			);
 			path = GlobalViews;
+			sourceTree = "<group>";
+		};
+		D69E053D2B3E1CF2001FE246 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				D69E053E2B3E1D05001FE246 /* HeaderView.swift */,
+				D69E05432B3E2010001FE246 /* ProfileInteractionView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		D69E05402B3E1EC4001FE246 /* TestData */ = {
+			isa = PBXGroup;
+			children = (
+				D69E05412B3E1ECE001FE246 /* MockData.swift */,
+			);
+			path = TestData;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -260,6 +285,7 @@
 				D69E05342B3B8119001FE246 /* WaterDropChartView.swift in Sources */,
 				D69E05282B3B7771001FE246 /* WaterDropCellView.swift in Sources */,
 				D69E05382B3CC204001FE246 /* WorkoutListView.swift in Sources */,
+				D69E05442B3E2010001FE246 /* ProfileInteractionView.swift in Sources */,
 				D69E051A2B3B4131001FE246 /* DropletTabView.swift in Sources */,
 				D69E051C2B3B4162001FE246 /* ProfileView.swift in Sources */,
 				D69E05222B3B51FB001FE246 /* PersonalDetailsView.swift in Sources */,
@@ -267,8 +293,10 @@
 				D69E05082B3B35AC001FE246 /* DropletApp.swift in Sources */,
 				D69E05202B3B4684001FE246 /* DailyView.swift in Sources */,
 				D69E051E2B3B45E4001FE246 /* CompleteWorkoutView.swift in Sources */,
+				D69E053F2B3E1D05001FE246 /* HeaderView.swift in Sources */,
 				D69E05242B3B5642001FE246 /* XDismissButton.swift in Sources */,
 				D69E053A2B3CC3E2001FE246 /* ProfileViewModel.swift in Sources */,
+				D69E05422B3E1ECE001FE246 /* MockData.swift in Sources */,
 				D69E05362B3BC82B001FE246 /* CompletedWorkoutCellView.swift in Sources */,
 				D69E05262B3B5B28001FE246 /* brandButton.swift in Sources */,
 			);
