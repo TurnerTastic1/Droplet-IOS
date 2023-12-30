@@ -15,21 +15,23 @@ struct ProfileView: View {
         ZStack {
             //MARK: Main navigation stack view
             NavigationStack {
-                VStack {
+                ScrollView {
                     HeaderView(isShowingPersonalInfo: $viewModel.isShowingPersonalInfo, username: viewModel.user.username)
                     
                     ProfileInteractionView(isShowingPersonalInfo: $viewModel.isShowingPersonalInfo)
                     
-                    Text(viewModel.user.bio)
-                        .font(.body)
-                        .padding(.top, 10)
+                    VStack(alignment: .trailing) {
+                        Text(viewModel.user.bio)
+                            .font(.title2)
+                            .fontWeight(.medium)
+                            .padding([.leading], 10)
+                    }
+                    .padding(.bottom, 20)
                     
-                    WaterDropChartView()
-                    
-                    Spacer()
-                    
+                    ForEach(viewModel.user.completedWorkouts, id: \.self) { workout in
+                        CompletedWorkoutCellView(workout: workout)
+                    }
                 }
-                .padding()
             }
             .blur(radius: viewModel.isShowingPersonalInfo ? 20 : 0)
             .disabled(viewModel.isShowingPersonalInfo)

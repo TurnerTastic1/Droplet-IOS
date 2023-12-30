@@ -26,8 +26,6 @@ struct HeaderView: View {
                     .shadow(radius: 10)
                     .padding([.trailing, .leading], 15)
                 
-                Spacer()
-                
                 Text(username)
                     .font(.title)
                     .fontWeight(.bold)
@@ -36,7 +34,7 @@ struct HeaderView: View {
                 Spacer()
             }
         }
-        .padding(.bottom, 5)
+        .padding([.bottom, .top], 5)
     }
 }
 

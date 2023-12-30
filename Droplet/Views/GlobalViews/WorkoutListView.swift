@@ -12,15 +12,14 @@ struct WorkoutListView: View {
     var completedWorkouts: [CompletedWorkout]
     
     var body: some View {
-        NavigationStack {
+        VStack {
             List(completedWorkouts) { workout in
                 CompletedWorkoutCellView(workout: workout)
             }
-            .navigationTitle("Workouts")
         }
     }
 }
 
 #Preview {
-    WorkoutListView(completedWorkouts: MockData.sampleCompletedWorkouts)
+    WorkoutListView(completedWorkouts: MockData.sampleUser.completedWorkouts)
 }

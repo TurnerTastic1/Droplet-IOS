@@ -17,7 +17,8 @@ struct MockData {
         email: "jdoe@gmail.com",
         birthdate: Date(),
         bio: "Crossfitter, lifter and runner!",
-        personalInfo: ["Age: 24", "Height: 6'1", "Weight: 190lb"]
+        personalInfo: ["Age: 24", "Height: 6'1", "Weight: 190lb"],
+        completedWorkouts: sampleCompletedWorkouts
     )
     
     static let sampleCompletedWorkout1 = CompletedWorkout(id: 001, name: "Murph", date: Date(), imgName: "sampleWorkoutPhoto1", description: "Hero Workout honoring Navy Seal Michael Murphy. For time with a 20lb vest: 1 mile run, 100 pullups, 200 pushups, 300 airsquats, 1 mile run", workoutType: WorkoutType.CROSSFIT, totalTime: 67.29)

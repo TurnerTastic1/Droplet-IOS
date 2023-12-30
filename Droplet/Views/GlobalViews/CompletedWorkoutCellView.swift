@@ -36,7 +36,7 @@ struct CompletedWorkoutCellView: View {
             }
             .padding()
             
-            Image(systemName: workout.workoutIconName)
+           Image(systemName: workout.workoutIconName)
         }
     }
 }
