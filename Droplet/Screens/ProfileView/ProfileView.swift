@@ -47,7 +47,7 @@ struct ProfileView: View {
             
             //MARK: Personal info card
             if viewModel.isShowingPersonalInfo {
-                PersonalDetailsView(personalInfo: viewModel.user.personalInfo, isShowingPersonalInfo: $viewModel.isShowingPersonalInfo)
+                PersonalDetailsView(user: viewModel.user, isShowingPersonalInfo: $viewModel.isShowingPersonalInfo)
             }
             
         }

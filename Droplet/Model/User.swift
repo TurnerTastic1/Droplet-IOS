@@ -17,4 +17,10 @@ struct User: Codable {
     var bio = ""
     var personalInfo = [""]
     var completedWorkouts: [CompletedWorkout] = []
+    
+    var age = 0
+    var height = 72
+    var weight = 100
+    var highlights: [String : Double] = [:]
+    
 }

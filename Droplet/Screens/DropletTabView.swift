@@ -10,11 +10,11 @@ import SwiftUI
 struct DropletTabView: View {
     var body: some View {
         TabView () {
-            DailyView()
-                .tabItem {
-                    Image(systemName: "figure.run")
-                    Text("Daily")
-                }
+//            DailyView()
+//                .tabItem {
+//                    Image(systemName: "figure.run")
+//                    Text("Daily")
+//                }
             CompleteWorkoutView ()
                 .tabItem {
                     Image(systemName: "plus.app")

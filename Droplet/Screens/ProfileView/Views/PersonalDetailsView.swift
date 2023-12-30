@@ -9,7 +9,7 @@ import SwiftUI
 
 struct PersonalDetailsView: View {
     
-    var personalInfo: [String]
+    var user: User
     @Binding var isShowingPersonalInfo: Bool
     
     var body: some View {
@@ -22,11 +22,9 @@ struct PersonalDetailsView: View {
                         .fontWeight(.bold)
                 )
                 {
-                    ForEach(personalInfo, id: \.self) { info in
-                            Text(info)
-                                .font(.title3)
-                                .fontWeight(.semibold)
-                    }
+                    DetailTextView(title: "Age: \(user.age) yrs")
+                    DetailTextView(title: "Height: \(user.height) in")
+                    DetailTextView(title: "Weight: \(user.weight) lb")
                 }
                 .headerProminence(.increased)
                 
@@ -47,5 +45,16 @@ struct PersonalDetailsView: View {
 }
 
 #Preview {
-    PersonalDetailsView(personalInfo: ["Age: 24", "Height: 6'1", "Weight: 190lb"], isShowingPersonalInfo: .constant(true))
+    PersonalDetailsView(user: MockData.sampleUser, isShowingPersonalInfo: .constant(true))
+}
+
+struct DetailTextView: View {
+    
+    var title: String
+    
+    var body: some View {
+        Text(title)
+            .font(.title3)
+            .fontWeight(.semibold)
+    }
 }
