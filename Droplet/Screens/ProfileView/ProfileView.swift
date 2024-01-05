@@ -24,7 +24,7 @@ struct ProfileView: View {
                         Text(viewModel.user.bio)
                             .font(.title2)
                             .fontWeight(.medium)
-                            .padding([.leading], 10)
+                            .padding([.leading, .trailing], 20)
                     }
                     .padding(.bottom, 20)
                     

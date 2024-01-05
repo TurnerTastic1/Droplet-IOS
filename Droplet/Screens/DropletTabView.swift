@@ -33,6 +33,9 @@ struct DropletTabView: View {
                 .foregroundStyle(Color.secondary)
                 .offset(y: 325)
             )
+        .onAppear(perform: {
+            ServerManager.shared.getUserCompletedWorkoutsService()
+        })
     }
 }
 

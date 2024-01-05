@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D63A39112B48AA4900E87F23 /* ServerResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = D63A39102B48AA4900E87F23 /* ServerResponse.swift */; };
 		D69E05082B3B35AC001FE246 /* DropletApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D69E05072B3B35AC001FE246 /* DropletApp.swift */; };
 		D69E050C2B3B35AE001FE246 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D69E050B2B3B35AE001FE246 /* Assets.xcassets */; };
 		D69E050F2B3B35AE001FE246 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D69E050E2B3B35AE001FE246 /* Preview Assets.xcassets */; };
@@ -28,9 +29,12 @@
 		D69E05422B3E1ECE001FE246 /* MockData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D69E05412B3E1ECE001FE246 /* MockData.swift */; };
 		D69E05442B3E2010001FE246 /* ProfileInteractionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D69E05432B3E2010001FE246 /* ProfileInteractionView.swift */; };
 		D69E05462B3E3649001FE246 /* CompletedWorkout.swift in Sources */ = {isa = PBXBuildFile; fileRef = D69E05452B3E3649001FE246 /* CompletedWorkout.swift */; };
+		D69E05492B4087BC001FE246 /* ServerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D69E05482B4087BC001FE246 /* ServerManager.swift */; };
+		D69E054E2B41F41C001FE246 /* CompletedWorkoutDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D69E054D2B41F41C001FE246 /* CompletedWorkoutDetailView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D63A39102B48AA4900E87F23 /* ServerResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerResponse.swift; sourceTree = "<group>"; };
 		D69E05042B3B35AC001FE246 /* Droplet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Droplet.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D69E05072B3B35AC001FE246 /* DropletApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropletApp.swift; sourceTree = "<group>"; };
 		D69E050B2B3B35AE001FE246 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -53,6 +57,8 @@
 		D69E05412B3E1ECE001FE246 /* MockData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockData.swift; sourceTree = "<group>"; };
 		D69E05432B3E2010001FE246 /* ProfileInteractionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileInteractionView.swift; sourceTree = "<group>"; };
 		D69E05452B3E3649001FE246 /* CompletedWorkout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompletedWorkout.swift; sourceTree = "<group>"; };
+		D69E05482B4087BC001FE246 /* ServerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerManager.swift; sourceTree = "<group>"; };
+		D69E054D2B41F41C001FE246 /* CompletedWorkoutDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompletedWorkoutDetailView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,6 +125,7 @@
 		D69E052A2B3B781B001FE246 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				D69E05472B4087A6001FE246 /* Managers */,
 				D69E05402B3E1EC4001FE246 /* TestData */,
 			);
 			path = Utilities;
@@ -127,6 +134,7 @@
 		D69E052B2B3B7824001FE246 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				D69E054A2B41F3D0001FE246 /* WorkoutViews */,
 				D69E05322B3B7925001FE246 /* GlobalViews */,
 				D69E05302B3B78B0001FE246 /* Buttons */,
 			);
@@ -138,6 +146,7 @@
 			children = (
 				D69E053B2B3CC445001FE246 /* User.swift */,
 				D69E05452B3E3649001FE246 /* CompletedWorkout.swift */,
+				D63A39102B48AA4900E87F23 /* ServerResponse.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -182,8 +191,6 @@
 			children = (
 				D69E05272B3B7771001FE246 /* WaterDropCellView.swift */,
 				D69E05332B3B8119001FE246 /* WaterDropChartView.swift */,
-				D69E05352B3BC82B001FE246 /* CompletedWorkoutCellView.swift */,
-				D69E05372B3CC204001FE246 /* WorkoutListView.swift */,
 			);
 			path = GlobalViews;
 			sourceTree = "<group>";
@@ -204,6 +211,24 @@
 				D69E05412B3E1ECE001FE246 /* MockData.swift */,
 			);
 			path = TestData;
+			sourceTree = "<group>";
+		};
+		D69E05472B4087A6001FE246 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				D69E05482B4087BC001FE246 /* ServerManager.swift */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
+		D69E054A2B41F3D0001FE246 /* WorkoutViews */ = {
+			isa = PBXGroup;
+			children = (
+				D69E05352B3BC82B001FE246 /* CompletedWorkoutCellView.swift */,
+				D69E05372B3CC204001FE246 /* WorkoutListView.swift */,
+				D69E054D2B41F41C001FE246 /* CompletedWorkoutDetailView.swift */,
+			);
+			path = WorkoutViews;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -283,6 +308,8 @@
 				D69E05442B3E2010001FE246 /* ProfileInteractionView.swift in Sources */,
 				D69E051A2B3B4131001FE246 /* DropletTabView.swift in Sources */,
 				D69E051C2B3B4162001FE246 /* ProfileView.swift in Sources */,
+				D69E054E2B41F41C001FE246 /* CompletedWorkoutDetailView.swift in Sources */,
+				D63A39112B48AA4900E87F23 /* ServerResponse.swift in Sources */,
 				D69E05222B3B51FB001FE246 /* PersonalDetailsView.swift in Sources */,
 				D69E053C2B3CC445001FE246 /* User.swift in Sources */,
 				D69E05082B3B35AC001FE246 /* DropletApp.swift in Sources */,
@@ -292,6 +319,7 @@
 				D69E053F2B3E1D05001FE246 /* HeaderView.swift in Sources */,
 				D69E05242B3B5642001FE246 /* XDismissButton.swift in Sources */,
 				D69E053A2B3CC3E2001FE246 /* ProfileViewModel.swift in Sources */,
+				D69E05492B4087BC001FE246 /* ServerManager.swift in Sources */,
 				D69E05422B3E1ECE001FE246 /* MockData.swift in Sources */,
 				D69E05362B3BC82B001FE246 /* CompletedWorkoutCellView.swift in Sources */,
 				D69E05262B3B5B28001FE246 /* brandButton.swift in Sources */,
