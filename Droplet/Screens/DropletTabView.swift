@@ -8,13 +8,14 @@
 import SwiftUI
 
 struct DropletTabView: View {
+    
     var body: some View {
         TabView () {
-//            DailyView()
-//                .tabItem {
-//                    Image(systemName: "figure.run")
-//                    Text("Daily")
-//                }
+            //            DailyView()
+            //                .tabItem {
+            //                    Image(systemName: "figure.run")
+            //                    Text("Daily")
+            //                }
             CompleteWorkoutView ()
                 .tabItem {
                     Image(systemName: "plus.app")
@@ -29,12 +30,12 @@ struct DropletTabView: View {
         .tint(Color("brandPrimary"))
         .overlay(
             Rectangle()
-                .frame(height: 1)
+                .frame(height: 2)
                 .foregroundStyle(Color.secondary)
                 .offset(y: 325)
-            )
+        )
         .onAppear(perform: {
-            ServerManager.shared.getUserCompletedWorkoutsService()
+            ServerManager.shared.rootStatusCheckService()
         })
     }
 }

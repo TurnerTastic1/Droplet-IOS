@@ -8,11 +8,11 @@
 import Foundation
 import UIKit
 
-final class ServerManager {
+final class ServerManager: ObservableObject {
     
     static let shared = ServerManager()
     
-    static let serverURL = "http://localhost:8080/FitNetServer/api/v1/"
+    private static let serverURL = "http://localhost:8080/FitNetServer/api/v1/"
     
     //MARK: Server Endpoints
     private let rootStatusEndpoint = serverURL + "root-status"
@@ -23,7 +23,7 @@ final class ServerManager {
     private init() {}
     
     //MARK: Basic validation of Data, Response and Error
-    func handleResponse(data: Data?, response: URLResponse?, error:Error?) -> Data? {
+    private func handleResponse(data: Data?, response: URLResponse?, error:Error?) -> Data? {
         if let _ = error {
             print("Error - error trying to complete fetch to server")
             return nil

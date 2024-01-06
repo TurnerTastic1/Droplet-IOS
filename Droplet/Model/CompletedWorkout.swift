@@ -16,6 +16,27 @@ struct CompletedWorkout: Identifiable, Codable, Hashable {
     var workoutType: WorkoutType
     var totalTime: Double
     
+    init() {
+        self.id = 0
+        self.name = ""
+        self.date = Date()
+        self.imgName = ""
+        self.description = ""
+        self.workoutType = .OTHER
+        self.totalTime = 0.0
+    }
+    
+    // Initializer that takes arguments
+    init(id: Int, name: String, date: Date, imgName: String, description: String, workoutType: WorkoutType, totalTime: Double) {
+        self.id = id
+        self.name = name
+        self.date = date
+        self.imgName = imgName
+        self.description = description
+        self.workoutType = workoutType
+        self.totalTime = totalTime
+    }
+    
     var workoutIconName: String {
         switch workoutType {
         case .CARDIO:
@@ -44,7 +65,7 @@ struct CompletedWorkout: Identifiable, Codable, Hashable {
     }
 }
 
-public enum WorkoutType: Codable {
+public enum WorkoutType: String, CaseIterable, Codable {
     case CARDIO
     case STRENGTH
     case CLIMBING

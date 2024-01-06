@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		D63A39112B48AA4900E87F23 /* ServerResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = D63A39102B48AA4900E87F23 /* ServerResponse.swift */; };
+		D63A39132B48E45A00E87F23 /* CompleteWorkoutViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D63A39122B48E45A00E87F23 /* CompleteWorkoutViewModel.swift */; };
+		D63A39152B48F5C900E87F23 /* testing.swift in Sources */ = {isa = PBXBuildFile; fileRef = D63A39142B48F5C900E87F23 /* testing.swift */; };
 		D69E05082B3B35AC001FE246 /* DropletApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D69E05072B3B35AC001FE246 /* DropletApp.swift */; };
 		D69E050C2B3B35AE001FE246 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D69E050B2B3B35AE001FE246 /* Assets.xcassets */; };
 		D69E050F2B3B35AE001FE246 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D69E050E2B3B35AE001FE246 /* Preview Assets.xcassets */; };
@@ -35,6 +37,8 @@
 
 /* Begin PBXFileReference section */
 		D63A39102B48AA4900E87F23 /* ServerResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerResponse.swift; sourceTree = "<group>"; };
+		D63A39122B48E45A00E87F23 /* CompleteWorkoutViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompleteWorkoutViewModel.swift; sourceTree = "<group>"; };
+		D63A39142B48F5C900E87F23 /* testing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = testing.swift; sourceTree = "<group>"; };
 		D69E05042B3B35AC001FE246 /* Droplet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Droplet.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D69E05072B3B35AC001FE246 /* DropletApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropletApp.swift; sourceTree = "<group>"; };
 		D69E050B2B3B35AE001FE246 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -165,6 +169,7 @@
 			isa = PBXGroup;
 			children = (
 				D69E051D2B3B45E4001FE246 /* CompleteWorkoutView.swift */,
+				D63A39122B48E45A00E87F23 /* CompleteWorkoutViewModel.swift */,
 			);
 			path = CompleteWorkoutView;
 			sourceTree = "<group>";
@@ -209,6 +214,7 @@
 			isa = PBXGroup;
 			children = (
 				D69E05412B3E1ECE001FE246 /* MockData.swift */,
+				D63A39142B48F5C900E87F23 /* testing.swift */,
 			);
 			path = TestData;
 			sourceTree = "<group>";
@@ -315,7 +321,9 @@
 				D69E05082B3B35AC001FE246 /* DropletApp.swift in Sources */,
 				D69E05202B3B4684001FE246 /* DailyView.swift in Sources */,
 				D69E051E2B3B45E4001FE246 /* CompleteWorkoutView.swift in Sources */,
+				D63A39132B48E45A00E87F23 /* CompleteWorkoutViewModel.swift in Sources */,
 				D69E05462B3E3649001FE246 /* CompletedWorkout.swift in Sources */,
+				D63A39152B48F5C900E87F23 /* testing.swift in Sources */,
 				D69E053F2B3E1D05001FE246 /* HeaderView.swift in Sources */,
 				D69E05242B3B5642001FE246 /* XDismissButton.swift in Sources */,
 				D69E053A2B3CC3E2001FE246 /* ProfileViewModel.swift in Sources */,
