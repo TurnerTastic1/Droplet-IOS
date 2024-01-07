@@ -33,6 +33,7 @@
 		D69E05462B3E3649001FE246 /* CompletedWorkout.swift in Sources */ = {isa = PBXBuildFile; fileRef = D69E05452B3E3649001FE246 /* CompletedWorkout.swift */; };
 		D69E05492B4087BC001FE246 /* ServerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D69E05482B4087BC001FE246 /* ServerManager.swift */; };
 		D69E054E2B41F41C001FE246 /* CompletedWorkoutDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D69E054D2B41F41C001FE246 /* CompletedWorkoutDetailView.swift */; };
+		D6A8CBC62B4A3A9B004724BF /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6A8CBC52B4A3A9B004724BF /* Alert.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -63,6 +64,7 @@
 		D69E05452B3E3649001FE246 /* CompletedWorkout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompletedWorkout.swift; sourceTree = "<group>"; };
 		D69E05482B4087BC001FE246 /* ServerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerManager.swift; sourceTree = "<group>"; };
 		D69E054D2B41F41C001FE246 /* CompletedWorkoutDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompletedWorkoutDetailView.swift; sourceTree = "<group>"; };
+		D6A8CBC52B4A3A9B004724BF /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,6 +131,7 @@
 		D69E052A2B3B781B001FE246 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				D6A8CBC42B4A373E004724BF /* Alert */,
 				D69E05472B4087A6001FE246 /* Managers */,
 				D69E05402B3E1EC4001FE246 /* TestData */,
 			);
@@ -237,6 +240,14 @@
 			path = WorkoutViews;
 			sourceTree = "<group>";
 		};
+		D6A8CBC42B4A373E004724BF /* Alert */ = {
+			isa = PBXGroup;
+			children = (
+				D6A8CBC52B4A3A9B004724BF /* Alert.swift */,
+			);
+			path = Alert;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -314,6 +325,7 @@
 				D69E05442B3E2010001FE246 /* ProfileInteractionView.swift in Sources */,
 				D69E051A2B3B4131001FE246 /* DropletTabView.swift in Sources */,
 				D69E051C2B3B4162001FE246 /* ProfileView.swift in Sources */,
+				D6A8CBC62B4A3A9B004724BF /* Alert.swift in Sources */,
 				D69E054E2B41F41C001FE246 /* CompletedWorkoutDetailView.swift in Sources */,
 				D63A39112B48AA4900E87F23 /* ServerResponse.swift in Sources */,
 				D69E05222B3B51FB001FE246 /* PersonalDetailsView.swift in Sources */,

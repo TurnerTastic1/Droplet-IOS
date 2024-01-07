@@ -9,10 +9,7 @@ import SwiftUI
 
 struct CompleteWorkoutView: View {
     
-    //@State private var progress = 0.0
-    @State private var progress: CGFloat = 0.0
-    @StateObject var viewModel = CompleteWorkoutViewModel()
-    
+    @StateObject private var viewModel = CompleteWorkoutViewModel()
     
     var body: some View {
         NavigationStack {
@@ -33,15 +30,19 @@ struct CompleteWorkoutView: View {
                 
                 Button("Submit") {
                     print(viewModel.completedWorkout)
-                    viewModel.uploading = true
+                    viewModel.completeWorkout()
                 }
             }
             .navigationTitle("Complete Workout")
-            
-//            if (viewModel.uploading) {
-//                ProgressView(value: progress)
-//            }
-            
+            .alert(
+                viewModel.alertItem?.title ?? AlertContext.defaultAlertTitle,
+                isPresented: $viewModel.showingAlert,
+                presenting: viewModel.alertItem?.details
+            ) { details in
+                
+            } message: { details in
+                Text(details.message)
+            }
             
         }
     }
