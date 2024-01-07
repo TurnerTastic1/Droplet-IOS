@@ -11,6 +11,7 @@ struct LoginView: View {
     
     @State private var email = ""
     @State private var password = ""
+    @Binding var isShowingLoginView: Bool
     
     var body: some View {
         NavigationView {
@@ -30,9 +31,14 @@ struct LoginView: View {
             }
             .navigationBarTitle("Login Form")
         }
+        .overlay(Button {
+            isShowingLoginView = false
+        } label: {
+            XDismissButton()
+        }, alignment: .topTrailing)
     }
 }
 
 #Preview {
-    LoginView()
+    LoginView(isShowingLoginView: .constant(true))
 }

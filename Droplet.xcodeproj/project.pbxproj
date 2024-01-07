@@ -37,6 +37,10 @@
 		D6A8CBCA2B4A52FC004724BF /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6A8CBC92B4A52FB004724BF /* RegisterView.swift */; };
 		D6A8CBCD2B4A54BB004724BF /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6A8CBCC2B4A54BB004724BF /* LoginView.swift */; };
 		D6A8CBCF2B4A5D2C004724BF /* AppDefaultsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6A8CBCE2B4A5D2C004724BF /* AppDefaultsModel.swift */; };
+		D6A8CBD12B4AF498004724BF /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6A8CBD02B4AF498004724BF /* AuthViewModel.swift */; };
+		D6A8CBD32B4AF4DB004724BF /* RegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6A8CBD22B4AF4DB004724BF /* RegisterViewModel.swift */; };
+		D6A8CBD52B4AF583004724BF /* AuthModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6A8CBD42B4AF583004724BF /* AuthModels.swift */; };
+		D6A8CBD82B4AFFE9004724BF /* SelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6A8CBD72B4AFFE9004724BF /* SelectionView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -71,6 +75,10 @@
 		D6A8CBC92B4A52FB004724BF /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
 		D6A8CBCC2B4A54BB004724BF /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		D6A8CBCE2B4A5D2C004724BF /* AppDefaultsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDefaultsModel.swift; sourceTree = "<group>"; };
+		D6A8CBD02B4AF498004724BF /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
+		D6A8CBD22B4AF4DB004724BF /* RegisterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewModel.swift; sourceTree = "<group>"; };
+		D6A8CBD42B4AF583004724BF /* AuthModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthModels.swift; sourceTree = "<group>"; };
+		D6A8CBD72B4AFFE9004724BF /* SelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectionView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -259,8 +267,11 @@
 		D6A8CBC72B4A52E3004724BF /* Auth */ = {
 			isa = PBXGroup;
 			children = (
+				D6A8CBD62B4AFFC2004724BF /* Selection */,
 				D6A8CBCB2B4A549D004724BF /* Login */,
 				D6A8CBC82B4A52EC004724BF /* Register */,
+				D6A8CBD02B4AF498004724BF /* AuthViewModel.swift */,
+				D6A8CBD42B4AF583004724BF /* AuthModels.swift */,
 			);
 			path = Auth;
 			sourceTree = "<group>";
@@ -269,6 +280,7 @@
 			isa = PBXGroup;
 			children = (
 				D6A8CBC92B4A52FB004724BF /* RegisterView.swift */,
+				D6A8CBD22B4AF4DB004724BF /* RegisterViewModel.swift */,
 			);
 			path = Register;
 			sourceTree = "<group>";
@@ -279,6 +291,14 @@
 				D6A8CBCC2B4A54BB004724BF /* LoginView.swift */,
 			);
 			path = Login;
+			sourceTree = "<group>";
+		};
+		D6A8CBD62B4AFFC2004724BF /* Selection */ = {
+			isa = PBXGroup;
+			children = (
+				D6A8CBD72B4AFFE9004724BF /* SelectionView.swift */,
+			);
+			path = Selection;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -371,12 +391,16 @@
 				D69E051E2B3B45E4001FE246 /* CompleteWorkoutView.swift in Sources */,
 				D63A39132B48E45A00E87F23 /* CompleteWorkoutViewModel.swift in Sources */,
 				D69E05462B3E3649001FE246 /* CompletedWorkout.swift in Sources */,
+				D6A8CBD52B4AF583004724BF /* AuthModels.swift in Sources */,
 				D63A39152B48F5C900E87F23 /* testing.swift in Sources */,
 				D69E053F2B3E1D05001FE246 /* HeaderView.swift in Sources */,
 				D69E05242B3B5642001FE246 /* XDismissButton.swift in Sources */,
+				D6A8CBD82B4AFFE9004724BF /* SelectionView.swift in Sources */,
 				D69E053A2B3CC3E2001FE246 /* ProfileViewModel.swift in Sources */,
 				D69E05492B4087BC001FE246 /* ServerManager.swift in Sources */,
+				D6A8CBD12B4AF498004724BF /* AuthViewModel.swift in Sources */,
 				D69E05422B3E1ECE001FE246 /* MockData.swift in Sources */,
+				D6A8CBD32B4AF4DB004724BF /* RegisterViewModel.swift in Sources */,
 				D69E05362B3BC82B001FE246 /* CompletedWorkoutCellView.swift in Sources */,
 				D69E05262B3B5B28001FE246 /* brandButton.swift in Sources */,
 			);

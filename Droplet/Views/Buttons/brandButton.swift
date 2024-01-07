@@ -26,5 +26,5 @@ struct brandButton: View {
 }
 
 #Preview {
-    brandButton(title: "test", width: 80, height: 20)
+    brandButton(title: "test", width: 110, height: 55)
 }

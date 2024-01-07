@@ -8,32 +8,49 @@
 import SwiftUI
 
 struct RegisterView: View {
-    @State private var username = ""
-    @State private var email = ""
-    @State private var password = ""
+    
+    @StateObject private var viewModel = RegisterViewModel()
+    @Binding var isShowingRegisterView: Bool
     
     var body: some View {
         NavigationView {
             Form {
                 Section {
-                    TextField("Username", text: $username)
-                    TextField("Email", text: $email)
-                    SecureField("Password", text: $password)
+                    TextField("Username", text: $viewModel.registerItem.username)
+                    TextField("Email", text: $viewModel.registerItem.email)
+                    SecureField("Password", text: $viewModel.registerItem.password)
                 } header: {
                     Text("User Information")
                 }
 
                 Button {
                     print("Register button tapped")
-                }label: {
+                    viewModel.register()
+                } label: {
                     Text("Register")
                 }
             }
             .navigationBarTitle("Registration Form")
+            .alert(
+                viewModel.alertItem?.title ?? AlertContext.AuthAlertContext.defaultAlertTitleAuth,
+                isPresented: $viewModel.showingAlert,
+                presenting: viewModel.alertItem?.details
+            ) { details in
+                
+            } message: { details in
+                Text(details.message)
+            }
+            
+            
         }
+        .overlay(Button {
+            isShowingRegisterView = false
+        } label: {
+            XDismissButton()
+        }, alignment: .topTrailing)
     }
 }
 
 #Preview {
-    RegisterView()
+    RegisterView(isShowingRegisterView: .constant(true))
 }
