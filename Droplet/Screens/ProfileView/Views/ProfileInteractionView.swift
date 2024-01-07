@@ -10,8 +10,9 @@ import SwiftUI
 struct ProfileInteractionView: View {
     
     @Binding var isShowingPersonalInfo: Bool
+    @Binding var isShowingSettings: Bool
+    
     @State private var scale: CGFloat = 1.0
-    @AppStorage("test") var test = "Test"
     
     var body: some View {
         HStack {
@@ -58,25 +59,25 @@ struct ProfileInteractionView: View {
             
             Spacer()
             
-            VStack {
-                Text(test)
-                Button(action: {
-                    test = "New value"
-                }) {
-                    Text("Change value")
+            Button {
+                isShowingSettings = true
+            } label: {
+                VStack {
+                    Image(systemName: "gear.circle")
+                        .resizable()
+                        .frame(width: 35, height: 35)
+                    
+                    Text("Settings")
                 }
-                Button(action: {
-                    if let bundleID = Bundle.main.bundleIdentifier {
-                        UserDefaults.standard.removePersistentDomain(forName: bundleID)
-                    }
-                }) {
-                    Text("Reset storage")
-                }
+                .foregroundStyle(Color(.brandPrimary))
             }
+            .padding()
+            
+            Spacer()
         }
     }
 }
 
 #Preview {
-    ProfileInteractionView(isShowingPersonalInfo: .constant(false))
+    ProfileInteractionView(isShowingPersonalInfo: .constant(false), isShowingSettings: .constant(false))
 }

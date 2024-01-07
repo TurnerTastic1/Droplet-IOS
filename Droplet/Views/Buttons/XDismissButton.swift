@@ -20,6 +20,7 @@ struct XDismissButton: View {
                 .frame(width: 44, height: 44)
                 .foregroundColor(.black)
         }
+        .padding(.trailing, 30)
     }
 }
 

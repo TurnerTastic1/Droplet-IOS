@@ -11,6 +11,7 @@ final class ProfileViewModel: ObservableObject {
     
     @Published var user = User()
     @Published var isShowingPersonalInfo = false
+    @Published var isShowingSettings = false
     
     func retrieveUser() {
         user = User(

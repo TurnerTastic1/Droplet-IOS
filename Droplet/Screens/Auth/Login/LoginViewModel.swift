@@ -27,7 +27,6 @@ final class LoginViewModel: ObservableObject {
             let data = try JSONEncoder().encode(newUserDetails)
             userDetails = data
             print("Attempting to login/auth")
-            print(userDetails)
         } catch {
             showingAlert = true
             alertItem = AlertContext.AuthAlertContext.invalidUserData

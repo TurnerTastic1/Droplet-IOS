@@ -42,6 +42,7 @@
 		D6A8CBD52B4AF583004724BF /* AuthModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6A8CBD42B4AF583004724BF /* AuthModels.swift */; };
 		D6A8CBD82B4AFFE9004724BF /* SelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6A8CBD72B4AFFE9004724BF /* SelectionView.swift */; };
 		D6A8CBDA2B4B0DAE004724BF /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6A8CBD92B4B0DAE004724BF /* LoginViewModel.swift */; };
+		D6A8CBDD2B4B1815004724BF /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6A8CBDC2B4B1815004724BF /* SettingsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -81,6 +82,7 @@
 		D6A8CBD42B4AF583004724BF /* AuthModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthModels.swift; sourceTree = "<group>"; };
 		D6A8CBD72B4AFFE9004724BF /* SelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectionView.swift; sourceTree = "<group>"; };
 		D6A8CBD92B4B0DAE004724BF /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		D6A8CBDC2B4B1815004724BF /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -224,6 +226,7 @@
 		D69E053D2B3E1CF2001FE246 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				D6A8CBDB2B4B1805004724BF /* Settings */,
 				D69E05212B3B51FB001FE246 /* PersonalDetailsView.swift */,
 				D69E053E2B3E1D05001FE246 /* HeaderView.swift */,
 				D69E05432B3E2010001FE246 /* ProfileInteractionView.swift */,
@@ -302,6 +305,14 @@
 				D6A8CBD72B4AFFE9004724BF /* SelectionView.swift */,
 			);
 			path = Selection;
+			sourceTree = "<group>";
+		};
+		D6A8CBDB2B4B1805004724BF /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				D6A8CBDC2B4B1815004724BF /* SettingsView.swift */,
+			);
+			path = Settings;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -396,6 +407,7 @@
 				D69E05462B3E3649001FE246 /* CompletedWorkout.swift in Sources */,
 				D6A8CBD52B4AF583004724BF /* AuthModels.swift in Sources */,
 				D6A8CBDA2B4B0DAE004724BF /* LoginViewModel.swift in Sources */,
+				D6A8CBDD2B4B1815004724BF /* SettingsView.swift in Sources */,
 				D63A39152B48F5C900E87F23 /* testing.swift in Sources */,
 				D69E053F2B3E1D05001FE246 /* HeaderView.swift in Sources */,
 				D69E05242B3B5642001FE246 /* XDismissButton.swift in Sources */,
