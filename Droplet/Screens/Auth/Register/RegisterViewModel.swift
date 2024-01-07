@@ -5,9 +5,12 @@
 //  Created by Turner Naef on 1/7/24.
 //
 
-import Foundation
+import SwiftUI
 
 final class RegisterViewModel: ObservableObject {
+    
+    // App Storage to hold user specifics - this can be tricky :)
+    @AppStorage("userDetails") private var userDetails: Data?
     
     @Published var registerItem = RegisterItem()
     @Published var alertItem: AlertItem?
@@ -18,7 +21,17 @@ final class RegisterViewModel: ObservableObject {
             return
         }
         
-        print("Attempting register")
+        let newUserDetails = AppDefaultsModel(username: registerItem.username, email: registerItem.email, password: registerItem.password, jwtToken: "blank JWT")
+        
+        do {
+            let data = try JSONEncoder().encode(newUserDetails)
+            userDetails = data
+            
+            print("Attempting to register")
+        } catch {
+            showingAlert = true
+            alertItem = AlertContext.AuthAlertContext.invalidUserData
+        }
     }
     
     var isValidForm: Bool {

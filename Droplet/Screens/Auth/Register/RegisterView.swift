@@ -28,6 +28,7 @@ struct RegisterView: View {
                     viewModel.register()
                 } label: {
                     Text("Register")
+                        .foregroundStyle(Color("brandPrimary"))
                 }
             }
             .navigationBarTitle("Registration Form")

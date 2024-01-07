@@ -12,6 +12,10 @@ final class ServerManager: ObservableObject {
     
     static let shared = ServerManager()
     
+    //MARK: Server status
+    @Published var serverStatus: Bool = true
+    
+    //MARK: Server URL
     private static let serverURL = "http://localhost:8080/FitNetServer/api/v1/"
     
     //MARK: Server Endpoints
@@ -53,10 +57,11 @@ final class ServerManager: ObservableObject {
     }
     
     //MARK: Root status endpoint service - GET
-    func rootStatusCheckService() {
+    func rootStatusCheckService(completed: @escaping (Result<ResponseGlobal, StandardNetworkError>) -> Void) {
         //MARK: Check if actual URL
         guard let url = URL(string: rootStatusEndpoint) else {
             print("Error - Invalid server URL")
+            completed(.failure(.invalidURL))
             return
         }
         
@@ -64,14 +69,17 @@ final class ServerManager: ObservableObject {
         
         let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
             guard let data = self.handleResponse(data: data, response: response, error: error) else {
+                completed(.failure(.unableToComplete))
                 return
             }
             
             do {
                 let decoder = JSONDecoder()
                 let decodedResponse = try decoder.decode(ResponseGlobal.self, from: data)
-                print(decodedResponse)
+                self.serverStatus = decodedResponse.status
+                completed(.success(decodedResponse))
             } catch {
+                completed(.failure(.invalidData))
                 print("Error - data corrupted")
                 return
             }

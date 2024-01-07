@@ -26,13 +26,12 @@ final class LoginViewModel: ObservableObject {
         do {
             let data = try JSONEncoder().encode(newUserDetails)
             userDetails = data
+            
             print("Attempting to login/auth")
         } catch {
             showingAlert = true
             alertItem = AlertContext.AuthAlertContext.invalidUserData
         }
-        
-        print("Attempting login")
     }
     
     var isValidForm: Bool {

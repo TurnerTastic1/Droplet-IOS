@@ -10,6 +10,8 @@ import SwiftUI
 struct DropletTabView: View {
     
     @AppStorage("userDetails") private var userDetails: Data?
+    @State var showingAlert: Bool = false
+    private var alertItem = AlertContext.NetworkAlertContext.serverConnectionFailure
     
     var body: some View {
         ZStack {
@@ -40,8 +42,28 @@ struct DropletTabView: View {
             }
         }
         .onAppear(perform: {
-            ServerManager.shared.rootStatusCheckService()
+            baseNetworkCall()
         })
+        .alert(
+            alertItem.title,
+            isPresented: $showingAlert,
+            presenting: alertItem.details
+        ) { details in
+            
+        } message: { details in
+            Text(details.message)
+        }
+    }
+    
+    private func baseNetworkCall() {
+        ServerManager.shared.rootStatusCheckService() { result in
+            switch result {
+            case .success(_):
+                break
+            case .failure(_):
+                showingAlert = true
+            }
+        }
     }
 }
 

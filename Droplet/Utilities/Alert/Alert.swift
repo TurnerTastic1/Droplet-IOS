@@ -41,6 +41,9 @@ struct AlertContext {
     
     //MARK: - Network Alerts
     struct NetworkAlertContext {
+        static let defaultAlertTitleNetwork = "Error connecting to server"
+        
+        static let serverConnectionFailure = AlertItem(title: "Server error", details: AlertDetails(message: "Issue connecting to the server. Check your connection or contact support."))
         
     }
     

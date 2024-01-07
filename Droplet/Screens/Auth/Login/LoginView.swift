@@ -26,6 +26,7 @@ struct LoginView: View {
                     viewModel.login()
                 }label: {
                     Text("Login")
+                        .foregroundStyle(Color("brandPrimary"))
                 }
             }
             .navigationBarTitle("Login Form")

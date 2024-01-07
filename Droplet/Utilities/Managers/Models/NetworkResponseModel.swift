@@ -69,3 +69,10 @@ struct GenericCodingKeys: CodingKey {
         self.stringValue = stringValue
     }
 }
+
+enum StandardNetworkError: Error {
+    case invalidURL
+    case invalidResponse
+    case invalidData
+    case unableToComplete
+}
