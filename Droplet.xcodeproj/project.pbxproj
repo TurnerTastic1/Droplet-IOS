@@ -34,6 +34,7 @@
 		D69E05492B4087BC001FE246 /* ServerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D69E05482B4087BC001FE246 /* ServerManager.swift */; };
 		D69E054E2B41F41C001FE246 /* CompletedWorkoutDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D69E054D2B41F41C001FE246 /* CompletedWorkoutDetailView.swift */; };
 		D6A8CBC62B4A3A9B004724BF /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6A8CBC52B4A3A9B004724BF /* Alert.swift */; };
+		D6A8CBCA2B4A52FC004724BF /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6A8CBC92B4A52FB004724BF /* RegisterView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -65,6 +66,7 @@
 		D69E05482B4087BC001FE246 /* ServerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerManager.swift; sourceTree = "<group>"; };
 		D69E054D2B41F41C001FE246 /* CompletedWorkoutDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompletedWorkoutDetailView.swift; sourceTree = "<group>"; };
 		D6A8CBC52B4A3A9B004724BF /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
+		D6A8CBC92B4A52FB004724BF /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,6 +122,7 @@
 		D69E05292B3B780D001FE246 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				D6A8CBC72B4A52E3004724BF /* Auth */,
 				D69E052F2B3B786B001FE246 /* DailyView */,
 				D69E052E2B3B785F001FE246 /* CompleteWorkoutView */,
 				D69E052D2B3B784B001FE246 /* ProfileView */,
@@ -248,6 +251,22 @@
 			path = Alert;
 			sourceTree = "<group>";
 		};
+		D6A8CBC72B4A52E3004724BF /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				D6A8CBC82B4A52EC004724BF /* Register */,
+			);
+			path = Auth;
+			sourceTree = "<group>";
+		};
+		D6A8CBC82B4A52EC004724BF /* Register */ = {
+			isa = PBXGroup;
+			children = (
+				D6A8CBC92B4A52FB004724BF /* RegisterView.swift */,
+			);
+			path = Register;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -330,6 +349,7 @@
 				D63A39112B48AA4900E87F23 /* ServerResponse.swift in Sources */,
 				D69E05222B3B51FB001FE246 /* PersonalDetailsView.swift in Sources */,
 				D69E053C2B3CC445001FE246 /* User.swift in Sources */,
+				D6A8CBCA2B4A52FC004724BF /* RegisterView.swift in Sources */,
 				D69E05082B3B35AC001FE246 /* DropletApp.swift in Sources */,
 				D69E05202B3B4684001FE246 /* DailyView.swift in Sources */,
 				D69E051E2B3B45E4001FE246 /* CompleteWorkoutView.swift in Sources */,

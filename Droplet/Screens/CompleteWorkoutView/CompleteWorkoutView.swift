@@ -14,18 +14,22 @@ struct CompleteWorkoutView: View {
     var body: some View {
         NavigationStack {
             Form {
-                TextField("Workout Name", text: $viewModel.completedWorkout.name)
-                DatePicker("Date", selection: $viewModel.completedWorkout.date)
-                TextField("Description", text: $viewModel.completedWorkout.description)
-                TextField("Duration", value: $viewModel.completedWorkout.totalTime, formatter: viewModel.numberFormatter)
-                
-                Picker("Workout Type", selection: $viewModel.completedWorkout.workoutType) {
-                    ForEach(WorkoutType.allCases, id: \.self) { type in
-                        Text(type.rawValue).tag(type.rawValue)
+                Section {
+                    TextField("Workout Name", text: $viewModel.completedWorkout.name)
+                    DatePicker("Date", selection: $viewModel.completedWorkout.date)
+                    TextField("Description", text: $viewModel.completedWorkout.description)
+                    TextField("Duration", value: $viewModel.completedWorkout.totalTime, formatter: viewModel.numberFormatter)
+                    
+                    Picker("Workout Type", selection: $viewModel.completedWorkout.workoutType) {
+                        ForEach(WorkoutType.allCases, id: \.self) { type in
+                            Text(type.rawValue).tag(type.rawValue)
+                        }
                     }
-                }
-                .onChange(of: viewModel.completedWorkout.workoutType) { newValue, _ in
-                    viewModel.completedWorkout.workoutType = WorkoutType(rawValue: newValue.rawValue) ?? .OTHER
+                    .onChange(of: viewModel.completedWorkout.workoutType) { newValue, _ in
+                        viewModel.completedWorkout.workoutType = WorkoutType(rawValue: newValue.rawValue) ?? .OTHER
+                    }
+                } header: {
+                    Text("Workout")
                 }
                 
                 Button("Submit") {
