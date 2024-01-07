@@ -15,9 +15,9 @@ struct CompleteWorkoutView: View {
         NavigationStack {
             Form {
                 TextField("Workout Name", text: $viewModel.completedWorkout.name)
-                DatePicker("Select a date", selection: $viewModel.completedWorkout.date)
+                DatePicker("Date", selection: $viewModel.completedWorkout.date)
                 TextField("Description", text: $viewModel.completedWorkout.description)
-                TextField("Total Time", value: $viewModel.completedWorkout.totalTime, formatter: NumberFormatter())
+                TextField("Duration", value: $viewModel.completedWorkout.totalTime, formatter: viewModel.numberFormatter)
                 
                 Picker("Workout Type", selection: $viewModel.completedWorkout.workoutType) {
                     ForEach(WorkoutType.allCases, id: \.self) { type in
@@ -29,13 +29,12 @@ struct CompleteWorkoutView: View {
                 }
                 
                 Button("Submit") {
-                    print(viewModel.completedWorkout)
                     viewModel.completeWorkout()
                 }
             }
             .navigationTitle("Complete Workout")
             .alert(
-                viewModel.alertItem?.title ?? AlertContext.defaultAlertTitle,
+                viewModel.alertItem?.title ?? AlertContext.CompleteWorkoutViewAlertContext.defaultAlertTitleCompleteWorkout,
                 isPresented: $viewModel.showingAlert,
                 presenting: viewModel.alertItem?.details
             ) { details in

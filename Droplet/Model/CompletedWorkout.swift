@@ -22,7 +22,7 @@ struct CompletedWorkout: Identifiable, Codable, Hashable {
         self.date = Date()
         self.imgName = ""
         self.description = ""
-        self.workoutType = .OTHER
+        self.workoutType = .NONE
         self.totalTime = 0.0
     }
     
@@ -61,6 +61,8 @@ struct CompletedWorkout: Identifiable, Codable, Hashable {
             "figure.soccer"
         case .OTHER:
             "dumbbell.fill"
+        case .NONE:
+            "x.circle"
         }
     }
 }
@@ -77,4 +79,5 @@ public enum WorkoutType: String, CaseIterable, Codable {
     case RECOVERY
     case SPORT
     case OTHER
+    case NONE
 }
