@@ -36,6 +36,7 @@
 		D6A8CBC62B4A3A9B004724BF /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6A8CBC52B4A3A9B004724BF /* Alert.swift */; };
 		D6A8CBCA2B4A52FC004724BF /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6A8CBC92B4A52FB004724BF /* RegisterView.swift */; };
 		D6A8CBCD2B4A54BB004724BF /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6A8CBCC2B4A54BB004724BF /* LoginView.swift */; };
+		D6A8CBCF2B4A5D2C004724BF /* AppDefaultsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6A8CBCE2B4A5D2C004724BF /* AppDefaultsModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -69,6 +70,7 @@
 		D6A8CBC52B4A3A9B004724BF /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
 		D6A8CBC92B4A52FB004724BF /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
 		D6A8CBCC2B4A54BB004724BF /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		D6A8CBCE2B4A5D2C004724BF /* AppDefaultsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDefaultsModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -159,6 +161,7 @@
 				D69E053B2B3CC445001FE246 /* User.swift */,
 				D69E05452B3E3649001FE246 /* CompletedWorkout.swift */,
 				D63A39102B48AA4900E87F23 /* ServerResponse.swift */,
+				D6A8CBCE2B4A5D2C004724BF /* AppDefaultsModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -360,6 +363,7 @@
 				D63A39112B48AA4900E87F23 /* ServerResponse.swift in Sources */,
 				D69E05222B3B51FB001FE246 /* PersonalDetailsView.swift in Sources */,
 				D6A8CBCD2B4A54BB004724BF /* LoginView.swift in Sources */,
+				D6A8CBCF2B4A5D2C004724BF /* AppDefaultsModel.swift in Sources */,
 				D69E053C2B3CC445001FE246 /* User.swift in Sources */,
 				D6A8CBCA2B4A52FC004724BF /* RegisterView.swift in Sources */,
 				D69E05082B3B35AC001FE246 /* DropletApp.swift in Sources */,
