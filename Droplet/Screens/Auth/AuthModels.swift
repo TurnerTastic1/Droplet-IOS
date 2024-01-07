@@ -24,3 +24,18 @@ struct RegisterItem: Codable {
         self.password = ""
     }
 }
+
+struct LoginItem: Codable {
+    var username: String
+    var password: String
+    
+    init(username: String, password: String) {
+        self.username = username
+        self.password = password
+    }
+    
+    init() {
+        self.username = ""
+        self.password = ""
+    }
+}

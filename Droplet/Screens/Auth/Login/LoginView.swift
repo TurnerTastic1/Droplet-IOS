@@ -9,27 +9,35 @@ import SwiftUI
 
 struct LoginView: View {
     
-    @State private var email = ""
-    @State private var password = ""
+    @StateObject private var viewModel = LoginViewModel()
     @Binding var isShowingLoginView: Bool
     
     var body: some View {
         NavigationView {
             Form {
                 Section {
-                    TextField("Email", text: $email)
-                    SecureField("Password", text: $password)
+                    TextField("Username", text: $viewModel.loginItem.username)
+                    SecureField("Password", text: $viewModel.loginItem.password)
                 } header: {
                     Text("User Information")
                 }
 
                 Button {
-                    print("Login button tapped")
+                    viewModel.login()
                 }label: {
                     Text("Login")
                 }
             }
             .navigationBarTitle("Login Form")
+            .alert(
+                viewModel.alertItem?.title ?? AlertContext.AuthAlertContext.defaultAlertTitleAuth,
+                isPresented: $viewModel.showingAlert,
+                presenting: viewModel.alertItem?.details
+            ) { details in
+                
+            } message: { details in
+                Text(details.message)
+            }
         }
         .overlay(Button {
             isShowingLoginView = false

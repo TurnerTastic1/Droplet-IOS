@@ -41,6 +41,7 @@
 		D6A8CBD32B4AF4DB004724BF /* RegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6A8CBD22B4AF4DB004724BF /* RegisterViewModel.swift */; };
 		D6A8CBD52B4AF583004724BF /* AuthModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6A8CBD42B4AF583004724BF /* AuthModels.swift */; };
 		D6A8CBD82B4AFFE9004724BF /* SelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6A8CBD72B4AFFE9004724BF /* SelectionView.swift */; };
+		D6A8CBDA2B4B0DAE004724BF /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6A8CBD92B4B0DAE004724BF /* LoginViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -79,6 +80,7 @@
 		D6A8CBD22B4AF4DB004724BF /* RegisterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewModel.swift; sourceTree = "<group>"; };
 		D6A8CBD42B4AF583004724BF /* AuthModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthModels.swift; sourceTree = "<group>"; };
 		D6A8CBD72B4AFFE9004724BF /* SelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectionView.swift; sourceTree = "<group>"; };
+		D6A8CBD92B4B0DAE004724BF /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -289,6 +291,7 @@
 			isa = PBXGroup;
 			children = (
 				D6A8CBCC2B4A54BB004724BF /* LoginView.swift */,
+				D6A8CBD92B4B0DAE004724BF /* LoginViewModel.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -392,6 +395,7 @@
 				D63A39132B48E45A00E87F23 /* CompleteWorkoutViewModel.swift in Sources */,
 				D69E05462B3E3649001FE246 /* CompletedWorkout.swift in Sources */,
 				D6A8CBD52B4AF583004724BF /* AuthModels.swift in Sources */,
+				D6A8CBDA2B4B0DAE004724BF /* LoginViewModel.swift in Sources */,
 				D63A39152B48F5C900E87F23 /* testing.swift in Sources */,
 				D69E053F2B3E1D05001FE246 /* HeaderView.swift in Sources */,
 				D69E05242B3B5642001FE246 /* XDismissButton.swift in Sources */,
