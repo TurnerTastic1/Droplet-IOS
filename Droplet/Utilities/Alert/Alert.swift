@@ -55,5 +55,7 @@ struct AlertContext {
         static let emailLength = AlertItem(title: "Invalid email", details: AlertDetails(message: "Email must be at least 5 characters (50 max)."))
         
         static let usernameLength = AlertItem(title: "Invalid username", details: AlertDetails(message: "Username must be populated (20 max)."))
+        
+        static let invalidUserData = AlertItem(title: "Invalid data", details: AlertDetails(message: "Invalid user data - could not encode."))
     }
 }

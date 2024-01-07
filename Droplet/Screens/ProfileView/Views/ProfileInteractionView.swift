@@ -11,6 +11,7 @@ struct ProfileInteractionView: View {
     
     @Binding var isShowingPersonalInfo: Bool
     @State private var scale: CGFloat = 1.0
+    @AppStorage("test") var test = "Test"
     
     var body: some View {
         HStack {
@@ -40,14 +41,14 @@ struct ProfileInteractionView: View {
                         .resizable()
                         .frame(width: 35, height: 35)
                         .scaleEffect(scale)
-                                    .onAppear {
-                                        withAnimation(.easeInOut(duration: 0.5)) {
-                                            scale = 1.2
-                                        }
-                                        withAnimation(.easeInOut(duration: 0.5).delay(0.5)) {
-                                            scale = 1.0
-                                        }
-                                    }
+                        .onAppear {
+                            withAnimation(.easeInOut(duration: 0.5)) {
+                                scale = 1.2
+                            }
+                            withAnimation(.easeInOut(duration: 0.5).delay(0.5)) {
+                                scale = 1.0
+                            }
+                        }
                     
                     Text("Follow")
                 }
@@ -56,6 +57,22 @@ struct ProfileInteractionView: View {
             .padding()
             
             Spacer()
+            
+            VStack {
+                Text(test)
+                Button(action: {
+                    test = "New value"
+                }) {
+                    Text("Change value")
+                }
+                Button(action: {
+                    if let bundleID = Bundle.main.bundleIdentifier {
+                        UserDefaults.standard.removePersistentDomain(forName: bundleID)
+                    }
+                }) {
+                    Text("Reset storage")
+                }
+            }
         }
     }
 }

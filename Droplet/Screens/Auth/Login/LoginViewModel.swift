@@ -5,9 +5,12 @@
 //  Created by Turner Naef on 1/7/24.
 //
 
-import Foundation
+import SwiftUI
 
 final class LoginViewModel: ObservableObject {
+    
+    // App Storage to hold user specifics - this can be tricky :)
+    @AppStorage("userDetails") private var userDetails: Data?
     
     @Published var loginItem = LoginItem()
     @Published var alertItem: AlertItem?
@@ -16,6 +19,18 @@ final class LoginViewModel: ObservableObject {
     func login() {
         guard isValidForm else {
             return
+        }
+        
+        let newUserDetails = AppDefaultsModel(username: loginItem.username, email: "blank EMAIL", password: loginItem.password, jwtToken: "blank JWT")
+        
+        do {
+            let data = try JSONEncoder().encode(newUserDetails)
+            userDetails = data
+            print("Attempting to login/auth")
+            print(userDetails)
+        } catch {
+            showingAlert = true
+            alertItem = AlertContext.AuthAlertContext.invalidUserData
         }
         
         print("Attempting login")

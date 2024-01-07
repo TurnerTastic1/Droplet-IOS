@@ -9,31 +9,36 @@ import SwiftUI
 
 struct DropletTabView: View {
     
+    @AppStorage("userDetails") private var userDetails: Data?
+    
     var body: some View {
-        TabView () {
-            //            DailyView()
-            //                .tabItem {
-            //                    Image(systemName: "figure.run")
-            //                    Text("Daily")
-            //                }
-            CompleteWorkoutView ()
-                .tabItem {
-                    Image(systemName: "plus.app")
-                    Text("Complete Workout")
+        ZStack {
+            if (userDetails != nil) {
+                TabView () {
+                    CompleteWorkoutView ()
+                        .tabItem {
+                            Image(systemName: "plus.app")
+                            Text("Complete Workout")
+                        }
+                    ProfileView ()
+                        .tabItem {
+                            Image(systemName: "person")
+                            Text("You")
+                        }
                 }
-            ProfileView ()
-                .tabItem {
-                    Image(systemName: "person")
-                    Text("You")
-                }
+                .tint(Color("brandPrimary"))
+                .overlay(
+                    Rectangle()
+                        .frame(height: 2)
+                        .foregroundStyle(Color.secondary)
+                        .offset(y: 325)
+                )
+            }
+            
+            if (userDetails == nil) {
+                SelectionView()
+            }
         }
-        .tint(Color("brandPrimary"))
-        .overlay(
-            Rectangle()
-                .frame(height: 2)
-                .foregroundStyle(Color.secondary)
-                .offset(y: 325)
-        )
         .onAppear(perform: {
             ServerManager.shared.rootStatusCheckService()
         })
