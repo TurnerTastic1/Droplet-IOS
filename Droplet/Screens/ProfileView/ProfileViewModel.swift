@@ -20,6 +20,7 @@ final class ProfileViewModel: ObservableObject {
             email: "jdoe@gmail.com",
             birthdate: Date(),
             bio: "Crossfitter, lifter and runner and more! I go to Crossfit Sanitas",
+            personalInfo: ["info"],
             completedWorkouts: MockData.sampleCompletedWorkouts,
             age: 24,
             height: 73,
