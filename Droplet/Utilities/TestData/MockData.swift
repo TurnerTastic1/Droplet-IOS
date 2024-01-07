@@ -17,7 +17,6 @@ struct MockData {
         email: "jdoe@gmail.com",
         birthdate: Date(),
         bio: "Crossfitter, lifter and runner!",
-        personalInfo: ["Age: 24", "Height: 6'1", "Weight: 190lb"],
         completedWorkouts: sampleCompletedWorkouts,
         age: 24,
         height: 73,

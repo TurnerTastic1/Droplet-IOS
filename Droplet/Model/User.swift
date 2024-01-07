@@ -15,20 +15,18 @@ struct User: Codable {
     let email: String
     let birthdate: Date
     let bio: String
-    let personalInfo: [String]
     let completedWorkouts: [CompletedWorkout]
     let age: Int
     let height: Int
     let weight: Int
     
-    init(username: String, firstName: String, lastName: String, email: String, birthdate: Date, bio: String, personalInfo: [String], completedWorkouts: [CompletedWorkout], age: Int, height: Int, weight: Int) {
+    init(username: String, firstName: String, lastName: String, email: String, birthdate: Date, bio: String, completedWorkouts: [CompletedWorkout], age: Int, height: Int, weight: Int) {
         self.username = username
         self.firstName = firstName
         self.lastName = lastName
         self.email = email
         self.birthdate = birthdate
         self.bio = bio
-        self.personalInfo = personalInfo
         self.completedWorkouts = completedWorkouts
         self.age = age
         self.height = height
@@ -42,7 +40,6 @@ struct User: Codable {
         self.email = ""
         self.birthdate = Date()
         self.bio = ""
-        self.personalInfo = []
         self.completedWorkouts = []
         self.age = 0
         self.height = 0
