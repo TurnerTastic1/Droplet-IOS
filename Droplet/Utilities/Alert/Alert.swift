@@ -60,5 +60,9 @@ struct AlertContext {
         static let usernameLength = AlertItem(title: "Invalid username", details: AlertDetails(message: "Username must be populated (20 max)."))
         
         static let invalidUserData = AlertItem(title: "Invalid data", details: AlertDetails(message: "Invalid user data - could not encode."))
+        
+        static let registerFailure = AlertItem(title: "Failed to register", details: AlertDetails(message: "Server could not register the user. Please try again later."))
+        
+        static let authenticationFailure = AlertItem(title: "Failed to authenticate", details: AlertDetails(message: "Server could not authenticate the user. Please try again later."))
     }
 }

@@ -75,4 +75,13 @@ enum StandardNetworkError: Error {
     case invalidResponse
     case invalidData
     case unableToComplete
+    case invalidRequestData
+}
+
+enum NetworkAuthError: Error {
+    case usernameNotFound
+    case usernameAlreadyExists
+    case emailNotFound
+    case emailAlreadyExists
+    case passwordDoesNotMatch
 }

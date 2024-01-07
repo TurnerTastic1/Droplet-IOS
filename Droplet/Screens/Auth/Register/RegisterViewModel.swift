@@ -24,10 +24,24 @@ final class RegisterViewModel: ObservableObject {
         let newUserDetails = AppDefaultsModel(username: registerItem.username, email: registerItem.email, password: registerItem.password, jwtToken: "blank JWT")
         
         do {
+            print("Attempting to register - validations passed - RegisterViewModel - Register func")
+            
+            ServerManager.shared.registerNewUser(registerItem: registerItem) { result in
+                switch result {
+                case .success(let response):
+                    print("User registered - RegisterViewModel - Register func")
+                    print(response)
+                    break
+                case .failure(_):
+                    print("Error registering user - RegisterViewModel - Register func")
+                    self.showingAlert = true
+                    self.alertItem = AlertContext.AuthAlertContext.registerFailure
+                    return
+                }
+            }
+            
             let data = try JSONEncoder().encode(newUserDetails)
             userDetails = data
-            
-            print("Attempting to register")
         } catch {
             showingAlert = true
             alertItem = AlertContext.AuthAlertContext.invalidUserData

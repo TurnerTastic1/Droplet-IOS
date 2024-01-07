@@ -91,6 +91,51 @@ final class ServerManager: ObservableObject {
     }
     
     //MARK: Register endpoint service - POST
+    func registerNewUser(registerItem: RegisterItem, completed: @escaping (Result<ResponseGlobal, StandardNetworkError>) -> Void) {
+        //MARK: Check if actual URL
+        guard let url = URL(string: registerEndpoint) else {
+            print("Error - Invalid server URL")
+            return
+        }
+        
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        
+        let encoder = JSONEncoder()
+        do {
+            let jsonData = try encoder.encode(registerItem)
+            request.httpBody = jsonData
+        } catch {
+            completed(.failure(.invalidRequestData))
+            print("Error - could not encode request")
+            return
+        }
+        
+        // Set Content-Type
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        
+        let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
+            guard let data = self.handleResponse(data: data, response: response, error: error) else {
+                completed(.failure(.unableToComplete))
+                return
+            }
+            
+            do {
+                let decoder = JSONDecoder()
+                let decodedResponse = try decoder.decode(ResponseGlobal.self, from: data)
+                self.serverStatus = decodedResponse.status
+                completed(.success(decodedResponse))
+            } catch {
+                completed(.failure(.invalidData))
+                print("Error - data corrupted")
+                return
+            }
+        }
+        
+        task.resume()
+        
+        return
+    }
     
     //MARK: Authenticate endpoint service - POST
     
