@@ -8,6 +8,9 @@
 import Foundation
 
 struct User: Codable {
+    
+    
+    
     var username = ""
     var firstName = ""
     var lastName = ""
@@ -21,6 +24,4 @@ struct User: Codable {
     var age = 0
     var height = 72
     var weight = 100
-    var highlights: [String : Double] = [:]
-    
 }

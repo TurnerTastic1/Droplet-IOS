@@ -35,6 +35,7 @@
 		D69E054E2B41F41C001FE246 /* CompletedWorkoutDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D69E054D2B41F41C001FE246 /* CompletedWorkoutDetailView.swift */; };
 		D6A8CBC62B4A3A9B004724BF /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6A8CBC52B4A3A9B004724BF /* Alert.swift */; };
 		D6A8CBCA2B4A52FC004724BF /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6A8CBC92B4A52FB004724BF /* RegisterView.swift */; };
+		D6A8CBCD2B4A54BB004724BF /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6A8CBCC2B4A54BB004724BF /* LoginView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -67,6 +68,7 @@
 		D69E054D2B41F41C001FE246 /* CompletedWorkoutDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompletedWorkoutDetailView.swift; sourceTree = "<group>"; };
 		D6A8CBC52B4A3A9B004724BF /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
 		D6A8CBC92B4A52FB004724BF /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
+		D6A8CBCC2B4A54BB004724BF /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -254,6 +256,7 @@
 		D6A8CBC72B4A52E3004724BF /* Auth */ = {
 			isa = PBXGroup;
 			children = (
+				D6A8CBCB2B4A549D004724BF /* Login */,
 				D6A8CBC82B4A52EC004724BF /* Register */,
 			);
 			path = Auth;
@@ -265,6 +268,14 @@
 				D6A8CBC92B4A52FB004724BF /* RegisterView.swift */,
 			);
 			path = Register;
+			sourceTree = "<group>";
+		};
+		D6A8CBCB2B4A549D004724BF /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				D6A8CBCC2B4A54BB004724BF /* LoginView.swift */,
+			);
+			path = Login;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -348,6 +359,7 @@
 				D69E054E2B41F41C001FE246 /* CompletedWorkoutDetailView.swift in Sources */,
 				D63A39112B48AA4900E87F23 /* ServerResponse.swift in Sources */,
 				D69E05222B3B51FB001FE246 /* PersonalDetailsView.swift in Sources */,
+				D6A8CBCD2B4A54BB004724BF /* LoginView.swift in Sources */,
 				D69E053C2B3CC445001FE246 /* User.swift in Sources */,
 				D6A8CBCA2B4A52FC004724BF /* RegisterView.swift in Sources */,
 				D69E05082B3B35AC001FE246 /* DropletApp.swift in Sources */,
