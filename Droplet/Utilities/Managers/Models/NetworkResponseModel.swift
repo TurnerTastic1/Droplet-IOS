@@ -7,69 +7,47 @@
 
 import Foundation
 
-//MARK: Root Response model
-//struct RootStatusResponse: Codable {
-//    let code: Int
-//    let message: String
-//    let status: Bool
-//    let data: Data
-//    
-//    struct Data: Codable {
-//        let version: String
-//    }
-//}
-//
-//struct rootDataClass: Codable {
-//    let version: String
-//}
-
-//MARK: Register
-
-//MARK: Authenticate
-
-struct ResponseGlobal: Decodable {
+//MARK: Server standard response model - data object not included but passed in through variable T
+// T must conform to decodable but it allows for all server response models to conform to ResponseGlobal and then alter the data field
+struct ResponseGlobal<T: Decodable>: Decodable {
     let code: Int
     let message: String
     let status: Bool
-    let data: [String: Any]
+    let timestamp: Int
     
-    enum CodingKeys: String, CodingKey {
-        case code, message, status, data
-    }
-    
-    init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: CodingKeys.self)
-        code = try container.decode(Int.self, forKey: .code)
-        message = try container.decode(String.self, forKey: .message)
-        status = try container.decode(Bool.self, forKey: .status)
-        let dataContainer = try container.nestedContainer(keyedBy: GenericCodingKeys.self, forKey: .data)
-        var dataDict: [String: Any] = [:]
-        for key in dataContainer.allKeys {
-            if let intValue = try? dataContainer.decode(Int.self, forKey: key) {
-                dataDict[key.stringValue] = intValue
-            } else if let stringValue = try? dataContainer.decode(String.self, forKey: key) {
-                dataDict[key.stringValue] = stringValue
-            }
-            // Add here any other types you want to support
+    let data: T
+}
+
+//MARK: Server Root Response model
+struct ServerRootResponse: Decodable {
+    struct Data: Decodable {
+        let versionData: String
+        
+        enum CodingKeys: String, CodingKey {
+            case versionData = "versionData"
         }
-        data = dataDict
     }
 }
 
-struct GenericCodingKeys: CodingKey {
-    var intValue: Int?
-    var stringValue: String
-
-    init?(intValue: Int) {
-        self.intValue = intValue
-        self.stringValue = "\(intValue)"
-    }
-
-    init?(stringValue: String) {
-        self.stringValue = stringValue
+//MARK: Register Response Model
+struct RegisterUserResponse: Decodable {
+    struct Data: Decodable {
+        let auth: Auth
+        
+        struct Auth: Decodable {
+            let accessToken: String
+            
+            enum CodingKeys: String, CodingKey {
+                case accessToken = "access_token"
+            }
+        }
     }
 }
 
+//MARK: Authenticate Response Model
+
+
+//MARK: Errors - represented as enums for errors thrown in ServerManager
 enum StandardNetworkError: Error {
     case invalidURL
     case invalidResponse
@@ -85,3 +63,56 @@ enum NetworkAuthError: Error {
     case emailAlreadyExists
     case passwordDoesNotMatch
 }
+
+
+/**
+ // Code here used for possible expansion in reading/decoding a server response
+ // It removes the need to write models for each endpoint
+ // However it is extremely complex and for this use would actually have negative affects
+ // Data type and amount is not always the same and therefore this code would be extremely exhaustive to hold all cases
+ // In its basic form it can interpret nested JSON data from Ints and Strings - does not interpret more nested JSON data - would need more complex code for that and loops (UGH)
+ 
+ 
+ // CODE
+ 
+ let data: [String: Any]
+ 
+ enum CodingKeys: String, CodingKey {
+ case code, message, status, data
+ }
+ 
+ init(from decoder: Decoder) throws {
+ let container = try decoder.container(keyedBy: CodingKeys.self)
+ code = try container.decode(Int.self, forKey: .code)
+ message = try container.decode(String.self, forKey: .message)
+ status = try container.decode(Bool.self, forKey: .status)
+ let dataContainer = try container.nestedContainer(keyedBy: GenericCodingKeys.self, forKey: .data)
+ 
+ var dataDict: [String: Any] = [:]
+ for key in dataContainer.allKeys {
+ if let intValue = try? dataContainer.decode(Int.self, forKey: key) {
+ dataDict[key.stringValue] = intValue
+ } else if let stringValue = try? dataContainer.decode(String.self, forKey: key) {
+ dataDict[key.stringValue] = stringValue
+ }
+ // Add here any other types you want to support
+ }
+ data = dataDict
+ }
+ 
+ struct GenericCodingKeys: CodingKey {
+ var intValue: Int?
+ var stringValue: String
+ 
+ init?(intValue: Int) {
+ self.intValue = intValue
+ self.stringValue = "\(intValue)"
+ }
+ 
+ init?(stringValue: String) {
+ self.stringValue = stringValue
+ }
+ }
+ 
+ 
+ */

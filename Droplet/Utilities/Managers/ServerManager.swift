@@ -57,7 +57,7 @@ final class ServerManager: ObservableObject {
     }
     
     //MARK: Root status endpoint service - GET
-    func rootStatusCheckService(completed: @escaping (Result<ResponseGlobal, StandardNetworkError>) -> Void) {
+    func rootStatusCheckService(completed: @escaping (Result<ResponseGlobal<ServerRootResponse.Data>, StandardNetworkError>) -> Void) {
         //MARK: Check if actual URL
         guard let url = URL(string: rootStatusEndpoint) else {
             print("Error - Invalid server URL")
@@ -75,8 +75,9 @@ final class ServerManager: ObservableObject {
             
             do {
                 let decoder = JSONDecoder()
-                let decodedResponse = try decoder.decode(ResponseGlobal.self, from: data)
+                let decodedResponse = try decoder.decode(ResponseGlobal<ServerRootResponse.Data>.self, from: data)
                 self.serverStatus = decodedResponse.status
+                print(decodedResponse)
                 completed(.success(decodedResponse))
             } catch {
                 completed(.failure(.invalidData))
@@ -91,7 +92,7 @@ final class ServerManager: ObservableObject {
     }
     
     //MARK: Register endpoint service - POST
-    func registerNewUser(registerItem: RegisterItem, completed: @escaping (Result<ResponseGlobal, StandardNetworkError>) -> Void) {
+    func registerNewUser(registerItem: RegisterItem, completed: @escaping (Result<ResponseGlobal<RegisterUserResponse.Data>, StandardNetworkError>) -> Void) {
         //MARK: Check if actual URL
         guard let url = URL(string: registerEndpoint) else {
             print("Error - Invalid server URL")
@@ -122,7 +123,7 @@ final class ServerManager: ObservableObject {
             
             do {
                 let decoder = JSONDecoder()
-                let decodedResponse = try decoder.decode(ResponseGlobal.self, from: data)
+                let decodedResponse = try decoder.decode(ResponseGlobal<RegisterUserResponse.Data>.self, from: data)
                 self.serverStatus = decodedResponse.status
                 completed(.success(decodedResponse))
             } catch {
@@ -157,7 +158,7 @@ final class ServerManager: ObservableObject {
             
             do {
                 let decoder = JSONDecoder()
-                let decodedResponse = try decoder.decode(ResponseGlobal.self, from: data)
+                let decodedResponse = try decoder.decode(ResponseGlobal<ServerRootResponse.Data>.self, from: data)
                 print(decodedResponse)
             } catch {
                 print("Error - data corrupted")
