@@ -22,7 +22,7 @@ struct ResponseGlobalNoData: Decodable {
     let code: Int
     let message: String
     let status: Bool
-    let timestamp: Int
+    let timestamp: Int64
 }
 
 //MARK: Server Root Response model
@@ -60,7 +60,27 @@ struct RegisterUserResponse: Decodable {
 struct ServerErrorResponse: Decodable, Error {
     struct Data: Decodable {
         let message: String
-        let errors: [String]
+        let errors: [ErrorDetail]
+        
+        struct ErrorDetail: Decodable {
+            let errorMessages: [String]?
+            let defaultMessage: String?
+            
+            let codes: [String]?
+            let arguments: [Argument]?
+            let objectName: String?
+            let field: String?
+            let rejectedValue: String?
+            let bindingFailure: Bool?
+            let code: String?
+        }
+        
+        struct Argument: Decodable {
+            let codes: [String]?
+            let arguments: String?
+            let defaultMessage: String?
+            let code: String?
+        }
         
         enum CodingKeys: String, CodingKey {
             case message = "message"
