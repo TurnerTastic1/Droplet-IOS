@@ -18,6 +18,13 @@ struct ResponseGlobal<T: Decodable>: Decodable {
     let data: T
 }
 
+struct ResponseGlobalNoData: Decodable {
+    let code: Int
+    let message: String
+    let status: Bool
+    let timestamp: Int
+}
+
 //MARK: Server Root Response model
 struct ServerRootResponse: Decodable {
     struct Data: Decodable {
