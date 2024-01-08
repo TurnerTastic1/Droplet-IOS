@@ -20,17 +20,17 @@ final class RegisterViewModel: ObservableObject {
         guard isValidForm else {
             return
         }
+        print("Attempting to register - validations passed - RegisterViewModel - Register func")
         
-        let newUserDetails = AppDefaultsModel(username: registerItem.username, email: registerItem.email, password: registerItem.password, jwtToken: "blank JWT")
+        var responseToken: String = ""
         
         do {
-            print("Attempting to register - validations passed - RegisterViewModel - Register func")
-            
             ServerManager.shared.registerNewUser(registerItem: registerItem) { result in
                 switch result {
                 case .success(let response):
                     print("User registered - RegisterViewModel - Register func")
                     print(response)
+                    responseToken = response.data.auth.accessToken
                     break
                 case .failure(_):
                     print("Error registering user - RegisterViewModel - Register func")
@@ -39,6 +39,7 @@ final class RegisterViewModel: ObservableObject {
                     return
                 }
             }
+            let newUserDetails = AppDefaultsModel(username: registerItem.username, email: registerItem.email, password: registerItem.password, jwtToken: responseToken)
             
             let data = try JSONEncoder().encode(newUserDetails)
             userDetails = data

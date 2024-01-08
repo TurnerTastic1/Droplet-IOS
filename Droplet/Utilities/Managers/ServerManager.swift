@@ -116,14 +116,23 @@ final class ServerManager: ObservableObject {
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         
         let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
-            guard let data = self.handleResponse(data: data, response: response, error: error) else {
+            guard let resData = self.handleResponse(data: data, response: response, error: error) else {
+                
+                do {
+                    let decoder = JSONDecoder()
+                    let decodedResponse = try decoder.decode(ResponseGlobal<ServerErrorResponse.Data>.self, from: data!)
+                    print(decodedResponse)
+                } catch {
+                    print("Could not parse error data")
+                }
+                
                 completed(.failure(.unableToComplete))
                 return
             }
             
             do {
                 let decoder = JSONDecoder()
-                let decodedResponse = try decoder.decode(ResponseGlobal<RegisterUserResponse.Data>.self, from: data)
+                let decodedResponse = try decoder.decode(ResponseGlobal<RegisterUserResponse.Data>.self, from: resData)
                 self.serverStatus = decodedResponse.status
                 completed(.success(decodedResponse))
             } catch {

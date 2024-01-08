@@ -44,10 +44,26 @@ struct RegisterUserResponse: Decodable {
     }
 }
 
+
+
 //MARK: Authenticate Response Model
 
 
-//MARK: Errors - represented as enums for errors thrown in ServerManager
+//MARK: Error Response Data Model - NOT YET EXHAUSTIVE AND SERVER NEEDS BETTER ERROR MSGing
+struct ServerErrorResponse: Decodable, Error {
+    struct Data: Decodable {
+        let message: String
+        let errors: [String]
+        
+        enum CodingKeys: String, CodingKey {
+            case message = "message"
+            case errors = "errors"
+        }
+    }
+}
+
+
+//MARK: Error cases - represented as enums for errors thrown in ServerManager
 enum StandardNetworkError: Error {
     case invalidURL
     case invalidResponse
