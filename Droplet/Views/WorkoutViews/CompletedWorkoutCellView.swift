@@ -30,7 +30,8 @@ struct CompletedWorkoutCellView: View {
                     .font(.title2)
                     .fontWeight(.medium)
                 
-                Text(dateFormatter.string(from: workout.date))
+                //Text(dateFormatter.string(from: workout.date))
+                Text(workout.date)
                     .foregroundColor(.secondary)
                     .fontWeight(.semibold)
             }

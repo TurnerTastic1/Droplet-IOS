@@ -24,29 +24,33 @@ final class RegisterViewModel: ObservableObject {
         
         var responseToken: String = ""
         
-        do {
-            ServerManager.shared.registerNewUser(registerItem: registerItem) { result in
-                switch result {
-                case .success(let response):
-                    print("User registered - RegisterViewModel - Register func")
-                    print(response)
-                    responseToken = response.data.auth.accessToken
-                    break
-                case .failure(_):
-                    print("Error registering user - RegisterViewModel - Register func")
+        ServerManager.shared.registerNewUserService(registerItem: registerItem) { result in
+            switch result {
+            case .success(let response):
+                print("User registered - RegisterViewModel - Register func")
+                print(response.code)
+                
+                responseToken = response.data.auth.accessToken
+                
+                let newUserDetails = AppDefaultsModel(username: self.registerItem.username, email: self.registerItem.email, password: self.registerItem.password, jwtToken: responseToken)
+                
+                do {
+                    let data = try JSONEncoder().encode(newUserDetails)
+                    self.userDetails = data
+                } catch {
                     self.showingAlert = true
-                    self.alertItem = AlertContext.AuthAlertContext.registerFailure
-                    return
+                    self.alertItem = AlertContext.AuthAlertContext.invalidUserData
                 }
+                
+                break
+            case .failure(_):
+                print("Error registering user - RegisterViewModel - Register func")
+                self.showingAlert = true
+                self.alertItem = AlertContext.AuthAlertContext.registerFailure
+                return
             }
-            let newUserDetails = AppDefaultsModel(username: registerItem.username, email: registerItem.email, password: registerItem.password, jwtToken: responseToken)
-            
-            let data = try JSONEncoder().encode(newUserDetails)
-            userDetails = data
-        } catch {
-            showingAlert = true
-            alertItem = AlertContext.AuthAlertContext.invalidUserData
         }
+        
     }
     
     var isValidForm: Bool {
@@ -77,7 +81,7 @@ final class RegisterViewModel: ObservableObject {
             alertItem = AlertContext.AuthAlertContext.passwordLength
             return false
         }
-            
+        
         return true
     }
 }

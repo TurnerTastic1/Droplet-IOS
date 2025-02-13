@@ -13,7 +13,7 @@ struct ResponseGlobal<T: Decodable>: Decodable {
     let code: Int
     let message: String
     let status: Bool
-    let timestamp: Int
+    let timestamp: Int64
     
     let data: T
 }
@@ -55,8 +55,15 @@ struct RegisterUserResponse: Decodable {
 
 //MARK: Authenticate Response Model
 
+//MARK: Complete Workout Response Model
+struct CompleteWorkoutResponse: Decodable {
+    struct Data: Decodable {
+        let message: String
+        let user: String
+    }
+}
 
-//MARK: Error Response Data Model - NOT YET EXHAUSTIVE AND SERVER NEEDS BETTER ERROR MSGing
+//MARK: Error Response Data Model
 struct ServerErrorResponse: Decodable, Error {
     struct Data: Decodable {
         let message: String

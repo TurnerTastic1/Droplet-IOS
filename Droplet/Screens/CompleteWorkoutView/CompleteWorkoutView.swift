@@ -16,7 +16,7 @@ struct CompleteWorkoutView: View {
             Form {
                 Section {
                     TextField("Workout Name", text: $viewModel.completedWorkout.name)
-                    DatePicker("Date", selection: $viewModel.completedWorkout.date)
+                    DatePicker("Date", selection: $viewModel.dateDTO)
                     TextField("Description", text: $viewModel.completedWorkout.description)
                     TextField("Duration", value: $viewModel.completedWorkout.totalTime, formatter: viewModel.numberFormatter)
                     

@@ -37,6 +37,10 @@ struct AlertContext {
         static let invalidDuration = AlertItem(title: "Invalid duration", details: AlertDetails(message: "Duration must be a number and not 0."))
         
         static let missingWorkoutType = AlertItem(title: "Missing workout type", details: AlertDetails(message: "Workout type cannot be none."))
+        
+        static let missingTokenOrAuthIssue = AlertItem(title: "Error completing workout", details: AlertDetails(message: "Could not complete workout at this time - invalid user info."))
+        
+        static let serverEncounteredError = AlertItem(title: "Server encountered an error", details: AlertDetails(message: "Server encountered an error while completing the workout. Please try again later."))
     }
     
     //MARK: - Network Alerts

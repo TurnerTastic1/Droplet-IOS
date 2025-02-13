@@ -22,7 +22,7 @@ final class ServerManager: ObservableObject {
     private let rootStatusEndpoint = serverURL + "root-status"
     private let registerEndpoint = serverURL + "auth/register"
     private let authEndpoint = serverURL + "auth/authenticate"
-    private let completedWorkoutEndpoint = serverURL + "user-workout/"
+    private let completeWorkoutEndpoint = serverURL + "user-workout/complete-workout"
     
     private init() {}
     
@@ -92,7 +92,7 @@ final class ServerManager: ObservableObject {
     }
     
     //MARK: Register endpoint service - POST
-    func registerNewUser(registerItem: RegisterItem, completed: @escaping (Result<ResponseGlobal<RegisterUserResponse.Data>, StandardNetworkError>) -> Void) {
+    func registerNewUserService(registerItem: RegisterItem, completed: @escaping (Result<ResponseGlobal<RegisterUserResponse.Data>, StandardNetworkError>) -> Void) {
         //MARK: Check if actual URL
         guard let url = URL(string: registerEndpoint) else {
             print("Error - Invalid server URL")
@@ -120,7 +120,7 @@ final class ServerManager: ObservableObject {
                 
                 do {
                     let decoder = JSONDecoder()
-                    let decodedResponse = try decoder.decode(ResponseGlobal<ServerErrorResponse.Data>.self, from: data!)
+                    let decodedResponse = try decoder.decode(ResponseGlobal<ServerErrorResponse.Data>.self, from: data ?? Data())
                     print(decodedResponse)
                 } catch {
                     print("Could not parse error data")
@@ -149,10 +149,76 @@ final class ServerManager: ObservableObject {
     
     //MARK: Authenticate endpoint service - POST
     
+    //MARK: Complete A Workout endpoint service - POST
+    func completeWorkoutService(completedWorkoutItem: CompletedWorkout, jwtToken: String, completed: @escaping (Result<ResponseGlobal<CompleteWorkoutResponse.Data>, StandardNetworkError>) -> Void) {
+        //MARK: Check if actual URL
+        guard let url = URL(string: completeWorkoutEndpoint) else {
+            print("Error - Invalid server URL")
+            return
+        }
+        
+        
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        
+        //MARK: Check if token is present - add to request if it is
+        guard !jwtToken.isEmpty else {
+            print("Invalid or missing token")
+            completed(.failure(.invalidRequestData))
+            return
+        }
+        
+        request.addValue("Bearer \(jwtToken)", forHTTPHeaderField: "Authorization")
+        
+        
+        let encoder = JSONEncoder()
+        do {
+            let jsonData = try encoder.encode(completedWorkoutItem)
+            request.httpBody = jsonData
+        } catch {
+            print("Error - could not encode request")
+            completed(.failure(.invalidRequestData))
+            return
+        }
+        
+        // Set Content-Type
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        
+        let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
+            guard let resData = self.handleResponse(data: data, response: response, error: error) else {
+                do {
+                    let decoder = JSONDecoder()
+                    let decodedResponse = try decoder.decode(ResponseGlobal<ServerErrorResponse.Data>.self, from: data ?? Data())
+                    print(decodedResponse)
+                } catch {
+                    print("Could not parse error data")
+                }
+                
+                completed(.failure(.unableToComplete))
+                return
+            }
+            
+            do {
+                let decoder = JSONDecoder()
+                let decodedResponse = try decoder.decode(ResponseGlobal<CompleteWorkoutResponse.Data>.self, from: resData)
+                self.serverStatus = decodedResponse.status
+                completed(.success(decodedResponse))
+            } catch {
+                completed(.failure(.invalidData))
+                print("Error - data corrupted")
+                return
+            }
+        }
+        
+        task.resume()
+        
+        return
+    }
+    
     //MARK: User Completed Workouts endpoint service - GET
     func getUserCompletedWorkoutsService() {
         //MARK: Check if actual URL
-        guard let url = URL(string: completedWorkoutEndpoint + "user-workouts") else {
+        guard let url = URL(string: completeWorkoutEndpoint + "user-workouts") else {
             print("Error - Invalid server URL")
             return
         }

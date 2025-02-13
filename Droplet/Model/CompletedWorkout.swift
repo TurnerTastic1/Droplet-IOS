@@ -10,7 +10,7 @@ import Foundation
 struct CompletedWorkout: Identifiable, Codable, Hashable {
     let id: Int
     var name: String
-    var date: Date
+    var date: String
     var imgName: String
     var description: String
     var workoutType: WorkoutType
@@ -19,7 +19,7 @@ struct CompletedWorkout: Identifiable, Codable, Hashable {
     init() {
         self.id = 0
         self.name = ""
-        self.date = Date()
+        self.date = ""
         self.imgName = ""
         self.description = ""
         self.workoutType = .NONE
@@ -27,7 +27,7 @@ struct CompletedWorkout: Identifiable, Codable, Hashable {
     }
     
     // Initializer that takes arguments
-    init(id: Int, name: String, date: Date, imgName: String, description: String, workoutType: WorkoutType, totalTime: Double) {
+    init(id: Int, name: String, date: String, imgName: String, description: String, workoutType: WorkoutType, totalTime: Double) {
         self.id = id
         self.name = name
         self.date = date

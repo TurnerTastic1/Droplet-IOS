@@ -10,9 +10,11 @@ import SwiftUI
 
 final class CompleteWorkoutViewModel: ObservableObject {
     
+    @AppStorage("userDetails") private var userDetails: Data?
+    
     @Published var completedWorkout = CompletedWorkout()
     @Published var uploading = false
-    
+    @Published var dateDTO = Date()
     @Published var alertItem: AlertItem?
     @Published var showingAlert = false
     
@@ -29,13 +31,58 @@ final class CompleteWorkoutViewModel: ObservableObject {
             return
         }
         
-        do {
-            let data = try JSONEncoder().encode(completedWorkout)
-            print(data)
-        } catch {
-            showingAlert = true
-            alertItem = AlertContext.CompleteWorkoutViewAlertContext.invalidForm
+        //MARK: Format date
+        var dateFormatter: DateFormatter {
+            let formatter = DateFormatter()
+            formatter.dateStyle = .long
+            return formatter
         }
+        
+        let date = dateDTO
+        let formatter = ISO8601DateFormatter()
+        let formattedDate = DateFormatter().string(from: date)
+        print(dateDTO)
+        print(formattedDate)
+        
+        let completedWorkoutDTO = CompletedWorkout(id: 0, name: completedWorkout.name, date: formattedDate, imgName: completedWorkout.imgName, description: completedWorkout.description, workoutType: completedWorkout.workoutType, totalTime: completedWorkout.totalTime)
+        
+        // Extract token if exists
+        var token = ""
+        if UserDefaults.standard.object(forKey: "userDetails") != nil, let data = userDetails, let user = try? JSONDecoder().decode(AppDefaultsModel.self, from: data) {
+            // userDetails exists
+            print("token: \(user)")
+            token = user.jwtToken
+        } else {
+            print("Failed to decode userDetails")
+            alertItem = AlertContext.CompleteWorkoutViewAlertContext.missingTokenOrAuthIssue
+            showingAlert = true
+            return
+        }
+        
+        if token.isEmpty {
+            print("token found empty")
+            alertItem = AlertContext.CompleteWorkoutViewAlertContext.missingTokenOrAuthIssue
+            showingAlert = true
+            return
+        }
+        print("token: \(token)")
+        
+        print(completedWorkout)
+        ServerManager.shared.completeWorkoutService(completedWorkoutItem: completedWorkoutDTO, jwtToken: token) { result in
+            switch result {
+            case .success(let response):
+                print("Workout Completed - completeWorkoutViewModel -completeWorkout func")
+                print(response)
+                break
+            case .failure(_):
+                print("Error completing workout - completeWorkoutViewModel -completeWorkout func")
+                self.showingAlert = true
+                self.alertItem = AlertContext.CompleteWorkoutViewAlertContext.serverEncounteredError
+                return
+            }
+        }
+        
+        return
     }
     
     var isValidForm: Bool {
@@ -46,7 +93,7 @@ final class CompleteWorkoutViewModel: ObservableObject {
         }
         
         // Comparing submitted date to the current date/time with a 1 second buffer
-        guard completedWorkout.date < Date().addingTimeInterval(1) else {
+        guard dateDTO < Date().addingTimeInterval(1) else {
             showingAlert = true
             alertItem = AlertContext.CompleteWorkoutViewAlertContext.invalidDate
             return false
